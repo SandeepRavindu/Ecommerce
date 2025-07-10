@@ -27,6 +27,7 @@ import rectangle3628 from './Rectangle 3628.png'
 import search_icon from './search icon.png'
 import Vector from './Vector.png'
 import dropdown from './dropdown.webp'
+import support_img from './support_img.png'
 
 export const assets = {
   about_img,
@@ -58,32 +59,213 @@ export const assets = {
   search_icon,
   Vector,
   dropdown,
+  support_img,
 
 }
 
 export const products = [
   {
-    _id: "aaaaa",
-    name: "Women Round Neck Cotton Top",
-    description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline.",
+    _id: "rect3608",
+    name: "Rectangle 3608 Product",
+    description: "Product image for Rectangle 3608.",
     price: 100,
     image: [rectangle3608],
-    category: "Women",
-    subCategory: "Topwear",
+    category: "Rectangle",
+    subCategory: "Image",
     sizes: ["S", "M", "L"],
-    date: 1716634345448,
+    date: Date.now(),
     bestseller: true
   },
   {
-    _id: "aaaab",
-    name: "Men Round Neck Pure Cotton T-shirt",
-    description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline.",
-    price: 200,
-    image: [rectangle3609,rectangle3611,rectangle3613_1,rectangle3613],
-    category: "Men",
-    subCategory: "Topwear",
-    sizes: ["M", "L", "XL"],
-    date: 1716621345448,
+    _id: "rect3609",
+    name: "Rectangle 3609 Product",
+    description: "Product image for Rectangle 3609.",
+    price: 110,
+    image: [rectangle3609],
+    category: "Rectangle",
+    subCategory: "Image",
+    sizes: ["S", "M", "L"],
+    date: Date.now(),
     bestseller: true
+  },
+  {
+    _id: "rect3611",
+    name: "Rectangle 3611 Product",
+    description: "Product image for Rectangle 3611.",
+    price: 120,
+    image: [rectangle3611],
+    category: "Rectangle",
+    subCategory: "Image",
+    sizes: ["S", "M", "L"],
+    date: Date.now(),
+    bestseller: false
+  },
+  {
+    _id: "rect3613_1",
+    name: "Rectangle 3613 (1) Product",
+    description: "Product image for Rectangle 3613 (1).",
+    price: 130,
+    image: [rectangle3613_1],
+    category: "Rectangle",
+    subCategory: "Image",
+    sizes: ["S", "M", "L"],
+    date: Date.now(),
+    bestseller: true
+  },
+  {
+    _id: "rect3613",
+    name: "Rectangle 3613 Product",
+    description: "Product image for Rectangle 3613.",
+    price: 140,
+    image: [rectangle3613],
+    category: "Rectangle",
+    subCategory: "Image",
+    sizes: ["S", "M", "L"],
+    date: Date.now(),
+    bestseller: false
+  },
+  {
+    _id: "rect3615",
+    name: "Rectangle 3615 Product",
+    description: "Product image for Rectangle 3615.",
+    price: 150,
+    image: [rectangle3615],
+    category: "Rectangle",
+    subCategory: "Image",
+    sizes: ["S", "M", "L"],
+    date: Date.now(),
+    bestseller: true
+  },
+  {
+    _id: "rect3616",
+    name: "Rectangle 3616 Product",
+    description: "Product image for Rectangle 3616.",
+    price: 160,
+    image: [rectangle3616],
+    category: "Rectangle",
+    subCategory: "Image",
+    sizes: ["S", "M", "L"],
+    date: Date.now(),
+    bestseller: false
+  },
+  {
+    _id: "rect3617_1",
+    name: "Rectangle 3617 (1) Product",
+    description: "Product image for Rectangle 3617 (1).",
+    price: 170,
+    image: [rectangle3617_1],
+    category: "Rectangle",
+    subCategory: "Image",
+    sizes: ["S", "M", "L"],
+    date: Date.now(),
+    bestseller: false
+  },
+  {
+    _id: "rect3617",
+    name: "Rectangle 3617 Product",
+    description: "Product image for Rectangle 3617.",
+    price: 180,
+    image: [rectangle3617],
+    category: "Rectangle",
+    subCategory: "Image",
+    sizes: ["S", "M", "L"],
+    date: Date.now(),
+    bestseller: false
+  },
+  {
+    _id: "rect3619",
+    name: "Rectangle 3619 Product",
+    description: "Product image for Rectangle 3619.",
+    price: 190,
+    image: [rectangle3619],
+    category: "Rectangle",
+    subCategory: "Image",
+    sizes: ["S", "M", "L"],
+    date: Date.now(),
+    bestseller: true
+  },
+  {
+    _id: "rect3621",
+    name: "Rectangle 3621 Product",
+    description: "Product image for Rectangle 3621.",
+    price: 200,
+    image: [rectangle3621],
+    category: "Rectangle",
+    subCategory: "Image",
+    sizes: ["S", "M", "L"],
+    date: Date.now(),
+    bestseller: false
+  },
+  {
+    _id: "rect3622",
+    name: "Rectangle 3622 Product",
+    description: "Product image for Rectangle 3622.",
+    price: 210,
+    image: [rectangle3622],
+    category: "Rectangle",
+    subCategory: "Image",
+    sizes: ["S", "M", "L"],
+    date: Date.now(),
+    bestseller: true
+  },
+  {
+    _id: "rect3626_1",
+    name: "Rectangle 3626 (1) Product",
+    description: "Product image for Rectangle 3626 (1).",
+    price: 220,
+    image: [rectangle3626_1],
+    category: "Rectangle",
+    subCategory: "Image",
+    sizes: ["S", "M", "L"],
+    date: Date.now(),
+    bestseller: false
+  },
+  {
+    _id: "rect3626",
+    name: "Rectangle 3626 Product",
+    description: "Product image for Rectangle 3626.",
+    price: 230,
+    image: [rectangle3626],
+    category: "Rectangle",
+    subCategory: "Image",
+    sizes: ["S", "M", "L"],
+    date: Date.now(),
+    bestseller: false
+  },
+  {
+    _id: "rect3627_1",
+    name: "Rectangle 3627 (1) Product",
+    description: "Product image for Rectangle 3627 (1).",
+    price: 240,
+    image: [rectangle3627_1],
+    category: "Rectangle",
+    subCategory: "Image",
+    sizes: ["S", "M", "L"],
+    date: Date.now(),
+    bestseller: false
+  },
+  {
+    _id: "rect3627",
+    name: "Rectangle 3627 Product",
+    description: "Product image for Rectangle 3627.",
+    price: 250,
+    image: [rectangle3627],
+    category: "Rectangle",
+    subCategory: "Image",
+    sizes: ["S", "M", "L"],
+    date: Date.now(),
+    bestseller: false
+  },
+  {
+    _id: "rect3628",
+    name: "Rectangle 3628 Product",
+    description: "Product image for Rectangle 3628.",
+    price: 260,
+    image: [rectangle3628],
+    category: "Rectangle",
+    subCategory: "Image",
+    sizes: ["S", "M", "L"],
+    date: Date.now(),
+    bestseller: false
   }
 ];
