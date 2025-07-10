@@ -24,6 +24,9 @@ import rectangle3626 from './Rectangle 3626.png'
 import rectangle3627_1 from './Rectangle 3627 (1).png'
 import rectangle3627 from './Rectangle 3627.png'
 import rectangle3628 from './Rectangle 3628.png'
+import search_icon from './search icon.png'
+import Vector from './Vector.png'
+import dropdown from './dropdown.webp'
 
 export const assets = {
   about_img,
@@ -52,6 +55,10 @@ export const assets = {
   rectangle3627_1,
   rectangle3627,
   rectangle3628,
+  search_icon,
+  Vector,
+  dropdown,
+
 }
 
 export const products = [
