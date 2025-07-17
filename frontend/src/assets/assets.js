@@ -30,6 +30,8 @@ import dropdown from './dropdown.webp'
 import support_img from './support_img.png'
 import cross_icon from './cross_icon.jpg'
 
+
+
 export const assets = {
   about_img,
   contact_img,
