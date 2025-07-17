@@ -1,214 +1,118 @@
-import React, { useState } from "react";
-import { ShoppingCart, User, Menu, X, Search, ChevronDown, Star } from "lucide-react";
+import React, { useState, useContext } from "react";
+import { assets } from "../assets/assets";
+import { Link, NavLink } from "react-router-dom";
+import { ShopContext } from "../context/ShopContext";
 
 const Navbar = () => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [searchQuery, setSearchQuery] = useState("");
-  const [activeCategory, setActiveCategory] = useState("shop");
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [user, setUser] = useState(null);
-  const [cartItemCount, setCartItemCount] = useState(3);
-
-  const categories = [
-    { id: "shop", name: "All Categories" },
-    { id: "bundle", name: "Bundle deals", highlight: true },
-    { id: "weekly", name: "Weekly deals" },
-    { id: "brands", name: "Top Brands" },
-    { id: "choice", name: "Choice" },
-    { id: "home", name: "Home & Garden" },
-    { id: "hair", name: "Hair Extensions & Wigs" },
-    { id: "more", name: "More", hasDropdown: true },
-  ];
-
-  const handleAuthClick = () => {
-    if (isAuthenticated) {
-      setIsAuthenticated(false);
-      setUser(null);
-    } else {
-      console.log("Show login modal");
-    }
-  };
-
-  const handleSearch = () => {
-    console.log("Searching for:", searchQuery);
-  };
-
-  const handleCartClick = () => {
-    console.log("Show cart modal");
-  };
+  const [visible, setVisible] = useState(false);
+   const { setShowSearch, getCartCount } = useContext(ShopContext);
+  
 
   return (
-    <header className="sticky top-0 z-50 bg-white shadow-sm">
-      {/* Top Navigation */}
-      <div className="border-b border-gray-200">
-        <div className="px-4 mx-auto max-w-7xl">
-          <div className="flex items-center justify-between h-16">
-            {/* Logo - Optimized for better balance */}
-            <div className="flex items-center flex-shrink-0 w-48">
-              <div className="flex items-center space-x-3">
-                <div className="relative">
-                  <div className="flex items-center justify-center w-8 h-8 transform rounded-lg bg-gradient-to-r from-orange-500 via-red-500 to-red-600 -rotate-12">
-                    <span className="text-sm font-bold text-white transform rotate-12">A</span>
-                  </div>
-                  <div className="absolute flex items-center justify-center w-3 h-3 bg-yellow-400 rounded-full -top-1 -right-1">
-                    <Star size={8} className="text-yellow-600 fill-current" />
-                  </div>
-                </div>
-                <div>
-                  <h1 className="text-xl font-bold tracking-tight">
-                    <span className="text-orange-500">Auri</span>
-                    <span className="text-red-500">Cart</span>
-                  </h1>
-                  <div className="-mt-1 text-xs text-gray-500">Global Shopping Festival</div>
-                </div>
-              </div>
-            </div>
+    <div className="flex items-center justify-between py-5 font-medium">
+      <Link to='/'>
+       <img src={assets.logo} className="w-36" alt="" />
+</Link>
+      <ul className="hidden gap-5 text-sm text-gray-700 sm:flex">
+        <NavLink to="/" className="flex flex-col items-center gap-1">
+          <p>HOME</p>
+          <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
+        </NavLink>
+        <NavLink to="/collection" className="flex flex-col items-center gap-1">
+          <p>COLLECTION</p>
+          <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
+        </NavLink>
+        <NavLink to="/about" className="flex flex-col items-center gap-1">
+          <p>ABOUT</p>
+          <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
+        </NavLink>
+        <NavLink to="/contact" className="flex flex-col items-center gap-1">
+          <p>CONTACT</p>
+          <hr className="w-2/4 border-none h-[1.5px] bg-gray-700 hidden" />
+        </NavLink>
+      </ul>
 
-            {/* Search Bar - Better responsive handling */}
-            <div className="flex-1 max-w-2xl min-w-0 mx-8">
-              <div className="relative">
-                <input
-                  type="text"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="free gifts for new users"
-                  className="w-full py-2.5 pl-4 pr-12 text-sm border border-gray-300 rounded-full outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 bg-gray-50 focus:bg-white transition-colors"
-                />
-                <button
-                  onClick={handleSearch}
-                  className="absolute p-2 text-white transition-colors -translate-y-1/2 bg-orange-500 rounded-full right-1 top-1/2 hover:bg-orange-600"
-                >
-                  <Search size={16} />
-                </button>
-              </div>
-            </div>
+      <div className="flex items-center gap-6">
+        {/* Search Icon */}
+        <img onClick={()=> setShowSearch(true)} src={assets.search_icon} className="w-5 cursor-pointer" alt="" />
 
-            {/* Right Side - Better balanced spacing */}
-            <div className="flex items-center justify-end space-x-6 w-80">
-              {/* Language */}
-              <div className="items-center hidden space-x-1 text-sm lg:flex">
-                <div className="flex items-center justify-center w-5 h-4 text-xs font-bold text-white bg-orange-500 rounded-sm">
-                  EN
-                </div>
-                <span className="text-gray-700">/ USD</span>
-                <ChevronDown size={14} className="text-gray-500" />
-              </div>
+        {/* Profile Dropdown */}
+        <div className="relative group">
+          <img
+            className="w-5 cursor-pointer"
+            src={assets.profile_icon}
+            alt=""
+          />
 
-              {/* User */}
-              <div className="flex items-center space-x-2">
-                <User size={20} className="text-gray-600" />
-                <div className="hidden text-sm md:block">
-                  {isAuthenticated && user ? (
-                    <>
-                      <div className="text-xs text-gray-500">Welcome</div>
-                      <button onClick={handleAuthClick} className="font-medium text-gray-700 transition-colors hover:text-orange-500">
-                        {user.name}
-                      </button>
-                    </>
-                  ) : (
-                    <>
-                      <div className="text-xs text-gray-500">Welcome</div>
-                      <button onClick={handleAuthClick} className="font-medium text-gray-700 transition-colors hover:text-orange-500">
-                        Sign in / Register
-                      </button>
-                    </>
-                  )}
-                </div>
-              </div>
-
-              {/* Cart */}
-              <button onClick={handleCartClick} className="relative flex items-center space-x-2 text-gray-700 transition-colors hover:text-orange-500">
-                <ShoppingCart size={20} />
-                <span className="hidden text-sm font-medium sm:inline">Cart</span>
-                {cartItemCount > 0 && (
-                  <span className="absolute flex items-center justify-center w-5 h-5 text-xs text-white bg-orange-500 rounded-full -top-2 -right-2">
-                    {cartItemCount}
-                  </span>
-                )}
-              </button>
-
-              {/* Mobile Menu Button */}
-              <button
-                onClick={() => setIsMenuOpen(!isMenuOpen)}
-                className="p-2 text-gray-600 transition-colors lg:hidden hover:text-gray-900"
-              >
-                {isMenuOpen ? <X size={20} /> : <Menu size={20} />}
-              </button>
+          <div className="absolute right-0 hidden pt-4 group-hover:block dropdown-menu">
+            <div className="flex flex-col gap-2 px-5 py-3 text-gray-500 rounded w-36 bg-slate-100">
+              <p className="cursor-pointer hover:text-black">My Profile</p>
+              <Link to="/orders" className="cursor-pointer hover:text-black">Orders</Link>
+              <p className="cursor-pointer hover:text-black">Logout</p>
             </div>
           </div>
         </div>
+        <Link to="/cart" className="relative">
+          <img src={assets.Vector} className="w-5 min-w-5" alt="" />
+          <p className="absolute w-4 h-4 text-xs text-center text-white bg-red-500 rounded-full -top-2 -right-2">
+            {getCartCount()}
+          </p>
+        </Link>
+        <img
+          onClick={() => setVisible(true)}
+          src={assets.menu_icon}
+          className="w-5 cursor-pointer sm:hidden"
+          alt=""
+        />
       </div>
-
-      {/* Mobile Search Bar */}
-      <div className="px-4 py-3 border-b border-gray-200 bg-gray-50 lg:hidden">
-        <div className="relative">
-          <input
-            type="text"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            placeholder="free gifts for new users"
-            className="w-full py-2.5 pl-4 pr-12 text-sm border border-gray-300 rounded-full outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 bg-white"
-          />
-          <button
-            onClick={handleSearch}
-            className="absolute p-2 text-white transition-colors -translate-y-1/2 bg-orange-500 rounded-full right-1 top-1/2 hover:bg-orange-600"
+      {/* side bar menu for small screens */}
+      <div
+        className={`absolute top-0 right-0 bottom-0 overflow-hidden bg-white transition-all ${
+          visible ? "w-full" : "w-0"
+        }`}
+      >
+        <div className="flex flex-col text-gray-600">
+          <div
+            onClick={() => setVisible(false)}
+            className="flex items-center gap-4 p-3 cursor-pointer"
           >
-            <Search size={16} />
-          </button>
+            <img src={assets.dropdown} className="h-4 rotate-180" alt="" />
+            <p>Back</p>
+          </div>
+          <NavLink
+            onClick={() => setVisible(false)}
+            to="/"
+            className="py-3 pl-6 border-b border-gray-200 hover:bg-gray-100"
+          >
+            HOME
+          </NavLink>
+
+          <NavLink
+            onClick={() => setVisible(false)}
+            to="/collection"
+            className="py-3 pl-6 border-b border-gray-200 hover:bg-gray-100"
+          >
+            COLLECTION
+          </NavLink>
+
+          <NavLink
+            onClick={() => setVisible(false)}
+            to="/about"
+            className="py-3 pl-6 border-b border-gray-200 hover:bg-gray-100"
+          >
+            ABOUT
+          </NavLink>
+
+          <NavLink
+            onClick={() => setVisible(false)}
+            to="/contact"
+            className="py-3 pl-6 border-b border-gray-200 hover:bg-gray-100"
+          >
+            CONTACT
+          </NavLink>
         </div>
       </div>
-
-      {/* Secondary Nav */}
-      <div className="bg-white border-b border-gray-100">
-        <div className="px-4 mx-auto max-w-7xl">
-          <nav className="flex items-center h-12 space-x-8 overflow-x-auto scrollbar-hide">
-            {categories.map((category) => (
-              <button
-                key={category.id}
-                onClick={() => setActiveCategory(category.id)}
-                className={`flex items-center space-x-1 text-sm font-medium whitespace-nowrap transition-colors hover:text-orange-500 ${
-                  category.highlight
-                    ? "text-red-500 hover:text-red-600"
-                    : activeCategory === category.id
-                    ? "text-orange-500"
-                    : "text-gray-700"
-                }`}
-              >
-                {category.id === "shop" && <Menu size={16} />}
-                <span>{category.name}</span>
-                {category.hasDropdown && <ChevronDown size={14} />}
-              </button>
-            ))}
-          </nav>
-        </div>
-      </div>
-
-      {/* Mobile Dropdown */}
-      {isMenuOpen && (
-        <div className="bg-white border-t lg:hidden">
-          <nav className="px-4 pt-2 pb-3 space-y-1">
-            {categories.map((category) => (
-              <button
-                key={category.id}
-                onClick={() => {
-                  setActiveCategory(category.id);
-                  setIsMenuOpen(false);
-                }}
-                className={`block w-full text-left px-3 py-2 text-sm font-medium transition-colors hover:bg-gray-50 rounded-lg ${
-                  category.highlight
-                    ? "text-red-500"
-                    : activeCategory === category.id
-                    ? "text-orange-500 bg-orange-50"
-                    : "text-gray-700"
-                }`}
-              >
-                {category.name}
-              </button>
-            ))}
-          </nav>
-        </div>
-      )}
-    </header>
+    </div>
   );
 };
 
