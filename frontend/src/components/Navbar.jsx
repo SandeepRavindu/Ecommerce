@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { assets } from "../assets/assets";
 import { Link, NavLink } from "react-router-dom";
+import { ShopContext } from "../context/ShopContext";
 
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
+   const { setShowSearch, getCartCount } = useContext(ShopContext);
+  
 
   return (
     <div className="flex items-center justify-between py-5 font-medium">
@@ -31,7 +34,7 @@ const Navbar = () => {
 
       <div className="flex items-center gap-6">
         {/* Search Icon */}
-        <img src={assets.search_icon} className="w-5 cursor-pointer" alt="" />
+        <img onClick={()=> setShowSearch(true)} src={assets.search_icon} className="w-5 cursor-pointer" alt="" />
 
         {/* Profile Dropdown */}
         <div className="relative group">
@@ -44,7 +47,7 @@ const Navbar = () => {
           <div className="absolute right-0 hidden pt-4 group-hover:block dropdown-menu">
             <div className="flex flex-col gap-2 px-5 py-3 text-gray-500 rounded w-36 bg-slate-100">
               <p className="cursor-pointer hover:text-black">My Profile</p>
-              <p className="cursor-pointer hover:text-black">Orders</p>
+              <Link to="/orders" className="cursor-pointer hover:text-black">Orders</Link>
               <p className="cursor-pointer hover:text-black">Logout</p>
             </div>
           </div>
@@ -52,7 +55,7 @@ const Navbar = () => {
         <Link to="/cart" className="relative">
           <img src={assets.Vector} className="w-5 min-w-5" alt="" />
           <p className="absolute w-4 h-4 text-xs text-center text-white bg-red-500 rounded-full -top-2 -right-2">
-            10
+            {getCartCount()}
           </p>
         </Link>
         <img
