@@ -1,4 +1,4 @@
-import { createContext } from "react";
+import React, { createContext, useState } from 'react';
 import { products } from "../assets/assets";
 
 // Create the context
@@ -7,11 +7,97 @@ export const ShopContext = createContext();
 const ShopContextProvider = (props) => {
   const currency = '$';
   const delivery_fee = 10;
+  const [search, setSearch] = useState('');
+  const [showSearch, setShowSearch] = useState(false);
+  const [cartItems, setCartItems] = useState({});
+  const [orders, setOrders] = useState([]);
+
+  const addToCart = async (itemId, size) => {
+    let cartData = structuredClone(cartItems);
+    
+    if (cartData[itemId]) {
+      if (cartData[itemId][size]) {
+        cartData[itemId][size] += 1;
+      } else {
+        cartData[itemId][size] = 1;
+      }
+    } else {
+      cartData[itemId] = {};
+      cartData[itemId][size] = 1;
+    }
+    
+    setCartItems(cartData);
+  };
+
+  const getCartCount = () => {
+    let totalCount = 0;
+    for (const items in cartItems) {
+      for (const item in cartItems[items]) {
+        try {
+          if (cartItems[items][item] > 0) {
+            totalCount += cartItems[items][item];
+          }
+        } catch (error) {
+          // Handle error silently
+        }
+      }
+    }
+    return totalCount;
+  };
+
+  const updateQuantity = async (itemId, size, quantity) => {
+    let cartData = structuredClone(cartItems);
+    cartData[itemId][size] = quantity;
+    setCartItems(cartData);
+  };
+
+  const getCartAmount = () => {
+    let totalAmount = 0;
+    for (const items in cartItems) {
+      let itemInfo = products.find((product) => product._id === items);
+      for (const item in cartItems[items]) {
+        try {
+          if (cartItems[items][item] > 0) {
+            totalAmount += itemInfo.price * cartItems[items][item];
+          }
+        } catch (error) {
+          // Handle error silently
+        }
+      }
+    }
+    return totalAmount;
+  };
+
+  const clearCart = () => {
+    setCartItems({});
+  };
+
+  const addOrder = (orderData) => {
+    const newOrder = {
+      id: Date.now().toString(),
+      date: new Date().toLocaleDateString(),
+      status: 'Processing',
+      ...orderData
+    };
+    setOrders(prev => [newOrder, ...prev]);
+  };
 
   const value = {
     products,
     currency,
     delivery_fee,
+    search,
+    setSearch,
+    showSearch,
+    setShowSearch,
+    cartItems,
+    addToCart,
+    getCartCount,
+    updateQuantity,
+    getCartAmount,
+    clearCart,
+    orders,
+    addOrder,
   };
 
   return (
@@ -22,7 +108,3 @@ const ShopContextProvider = (props) => {
 };
 
 export default ShopContextProvider;
-
-//central place to store data
-// Puts common values inside it
-//Makes this data available to all child components
