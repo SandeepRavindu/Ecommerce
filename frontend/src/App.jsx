@@ -5,13 +5,17 @@ import About from './pages/About'
 import Collecton from './pages/Collecton'
 import Contact from './pages/Contact'
 import PlaceOrder from './pages/PlaceOrder'
-import Product from './pages/product'
+import Product from './pages/Product'
 import Cart from './pages/Cart'
 import Login from './pages/Login'
 import Orders from './pages/Orders'
 import Navbar from './components/Navbar'
 import Footer from './components/Footer'
-import SearchBar from './components/SearchBar'
+import SearchBar from './components/SearchBar' 
+
+
+
+
 import { ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 
