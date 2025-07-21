@@ -83,6 +83,7 @@ const singleProduct = async (req, res) => {
   try {
     const { productId } = req.body;
     const product = await productModel.findById(productId);
+    console.log(product);
     res.json({ success: true, product });
   } catch (error) {
     console.log(error);
