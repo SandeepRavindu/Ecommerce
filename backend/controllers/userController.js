@@ -1,17 +1,17 @@
-import validator from 'validator';
-import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
-import userModel from '../models/userModel.js';
+import validator from "validator";
+import bcrypt from "bcrypt";
+import jwt from "jsonwebtoken";
+import userModel from "../models/userModel.js";
 
 // 🔐 JWT creator
 const createToken = (id) => {
-  return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: '7d' });
+  return jwt.sign({ id }, process.env.JWT_SECRET, { expiresIn: "7d" });
 };
 
 // ✅ Route for user registration
 const registerUser = async (req, res) => {
   try {
-    const { name, email, password, } = req.body;
+    const { name, email, password } = req.body;
 
     const exists = await userModel.findOne({ email });
     if (exists) {
@@ -19,11 +19,17 @@ const registerUser = async (req, res) => {
     }
 
     if (!validator.isEmail(email)) {
-      return res.json({ success: false, message: "Please enter a valid email" });
+      return res.json({
+        success: false,
+        message: "Please enter a valid email",
+      });
     }
 
     if (password.length < 8) {
-      return res.json({ success: false, message: "Please enter a strong password" });
+      return res.json({
+        success: false,
+        message: "Please enter a strong password",
+      });
     }
 
     const salt = await bcrypt.genSalt(10);
@@ -39,7 +45,6 @@ const registerUser = async (req, res) => {
     const token = createToken(user._id);
 
     res.json({ success: true, token });
-
   } catch (error) {
     console.log(error);
     res.json({ success: false, message: error.message });
@@ -63,24 +68,35 @@ const loginUser = async (req, res) => {
       const token = createToken(user._id);
       res.json({ success: true, token });
     } else {
-      res.json({ success: false, message: 'Invalid credentials' });
+      res.json({ success: false, message: "Invalid credentials" });
     }
-
   } catch (error) {
     console.log(error);
     res.json({ success: false, message: error.message });
   }
 };
 
-
 // 🟡 Route for admin login (to be implemented)
 const adminLogin = async (req, res) => {
-  // TODO: implement admin login logic
+  try {
+    const { email, password } = req.body;
+
+    if (
+      email === process.env.ADMIN_EMAIL &&
+      password === process.env.ADMIN_PASSWORD
+    ) {
+      const token = jwt.sign(email + password, process.env.JWT_SECRET);
+      res.json({ success: true, token , message: "Login successful" });
+    } else {
+      res.json({ success: false, message: "Invalid credentials" });
+    }
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, message: error.message });
+  }
 };
 
 export { registerUser, loginUser, adminLogin };
-
-
 
 //{
 //   "name": "Alice Johnson",
