@@ -2,11 +2,19 @@ import React, { useState, useContext } from "react";
 import { assets } from "../assets/assets";
 import { Link, NavLink } from "react-router-dom";
 import { ShopContext } from "../context/ShopContext";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const [visible, setVisible] = useState(false);
-   const { setShowSearch, getCartCount } = useContext(ShopContext);
-  
+  const { setShowSearch, getCartCount, token, setToken, setCartItems } = useContext(ShopContext);
+  const navigate = useNavigate();
+
+  const logout = () => {
+    navigate('/login');
+    localStorage.removeItem('token');
+    setToken('');
+    setCartItems({});
+  };
 
   return (
     <div className="flex items-center justify-between py-5 font-medium">
@@ -36,22 +44,29 @@ const Navbar = () => {
         {/* Search Icon */}
         <img onClick={()=> setShowSearch(true)} src={assets.search_icon} className="w-5 cursor-pointer" alt="" />
 
-        {/* Profile Dropdown */}
-        <div className="relative group">
-          <img
-            className="w-5 cursor-pointer"
-            src={assets.profile_icon}
-            alt=""
-          />
+        {/* Profile Dropdown - only show if user is logged in */}
+        {token ? (
+          <div className="relative group">
+            <img
+              className="w-5 cursor-pointer"
+              src={assets.profile_icon}
+              alt=""
+            />
 
-          <div className="absolute right-0 hidden pt-4 group-hover:block dropdown-menu">
-            <div className="flex flex-col gap-2 px-5 py-3 text-gray-500 rounded w-36 bg-slate-100">
-              <p className="cursor-pointer hover:text-black">My Profile</p>
-              <Link to="/orders" className="cursor-pointer hover:text-black">Orders</Link>
-              <p className="cursor-pointer hover:text-black">Logout</p>
+            <div className="absolute right-0 hidden pt-4 group-hover:block dropdown-menu">
+              <div className="flex flex-col gap-2 px-5 py-3 text-gray-500 rounded w-36 bg-slate-100">
+                <p className="cursor-pointer hover:text-black">My Profile</p>
+                <p onClick={() => navigate('/orders')} className="cursor-pointer hover:text-black">Orders</p>
+                <p onClick={logout} className="cursor-pointer hover:text-black">Logout</p>
+              </div>
             </div>
           </div>
-        </div>
+        ) : (
+          <Link to="/login" className="cursor-pointer">
+            <img src={assets.profile_icon} className="w-5" alt="" />
+          </Link>
+        )}
+
         <Link to="/cart" className="relative">
           <img src={assets.Vector} className="w-5 min-w-5" alt="" />
           <p className="absolute w-4 h-4 text-xs text-center text-white bg-red-500 rounded-full -top-2 -right-2">
