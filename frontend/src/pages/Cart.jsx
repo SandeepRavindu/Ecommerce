@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { ShopContext } from "../context/ShopContext";
-import Title from "../components/title";
+import Title2 from "../components/Title2";
 import { toast } from "react-toastify";
 import { assets } from "../assets/assets";
 import { useNavigate } from "react-router-dom";
@@ -61,7 +61,7 @@ const Cart = () => {
   return (
     <div className="border-t pt-14">
       <div className="mb-3 text-2xl">
-        <Title text1={"YOUR"} text2={"CART"} />
+        <Title2 text1={"YOUR"} text2={"CART"} />
       </div>
 
       <div>
@@ -139,7 +139,7 @@ const Cart = () => {
         {cartData.length > 0 && (
           <div className="w-full sm:w-[450px]">
             <div className="my-3 text-xl sm:text-2xl">
-              <Title text1={"CART"} text2={"TOTALS"} />
+              <Title2 text1={"CART"} text2={"TOTALS"} />
             </div>
             <div className="flex flex-col gap-2 mt-2 text-sm">
               <div className="flex justify-between">

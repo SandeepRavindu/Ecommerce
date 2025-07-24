@@ -1,5 +1,5 @@
 import axios from 'axios';
-import Title from '../components/title';
+import Title2 from '../components/Title2';
 import { ShopContext } from '../context/ShopContext'
 import React, { useContext, useEffect } from 'react'
 import { toast } from 'react-toastify';
@@ -48,7 +48,7 @@ useEffect(() => {
   return (
     <div className='pt-16 border-t'>
       <div className='text-2xl'>
-        <Title text1={'MY'} text2={'ORDERS'} />
+        <Title2 text1={'MY'} text2={'ORDERS'} />
       </div>
 
       <div>
