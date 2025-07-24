@@ -29,6 +29,8 @@ import Vector from './Vector.png'
 import dropdown from './dropdown.webp'
 import support_img from './support_img.png'
 import cross_icon from './cross_icon.jpg'
+import stripe_logo from './stripe_logo.png'
+import razorpay_logo from './razorpay_logo.png'
 
 
 
@@ -64,6 +66,8 @@ export const assets = {
   dropdown,
   support_img,
   cross_icon,
+  stripe_logo,
+  razorpay_logo
 
 }
 
