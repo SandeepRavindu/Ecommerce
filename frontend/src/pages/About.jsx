@@ -1,5 +1,5 @@
 import React from 'react'
-import Title from '../components/title'
+import Title2 from '../components/Title2'
 import { assets } from '../assets/assets'
 import NewsletterBox from '../components/NewsletterBox'
 
@@ -8,7 +8,7 @@ const About = () => {
     <div>
       {/* About Us Section */}
       <div className='pt-8 text-2xl text-center border-t'>
-        <Title text1={'ABOUT'} text2={'US'} />
+        <Title2 text1={'ABOUT'} text2={'US'} />
       </div>
 
       <div className='flex flex-col gap-16 my-10 md:flex-row'>
@@ -23,7 +23,7 @@ const About = () => {
 
       {/* Why Choose Us Section */}
       <div className='py-4 text-xl'>
-        <Title text1={'WHY'} text2={'CHOOSE US'} />
+        <Title2 text1={'WHY'} text2={'CHOOSE US'} />
       </div>
 
       <div className='flex flex-col mb-20 text-sm md:flex-row'>

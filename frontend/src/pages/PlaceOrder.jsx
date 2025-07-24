@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react'
-import Title from '../components/title';
+import Title2 from '../components/Title2';
 import CartTotal from '../components/CartTotal';
 import { assets } from '../assets/assets';
 import { ShopContext } from '../context/ShopContext';
@@ -116,7 +116,7 @@ const PlaceOrder = () => {
       {/* -----------left side------------ */}
       <div className='flex flex-col gap-4 w-full sm:max-w-[480px]' >
         <div className='my-3 text-xl sm:text-2xl'>
-          <Title text1={'DELIVERY'} text2={'INFORMATION'} />
+          <Title2 text1={'DELIVERY'} text2={'INFORMATION'} />
         </div>
         <div className='flex gap-3'>
           <input required onChange={onChangeHandler} name='firstName' value={formData.firstName} className='border border-gray-300 rounded py-1.5 px-3.5 w-full' type="text" placeholder='First name' />
@@ -143,7 +143,7 @@ const PlaceOrder = () => {
         </div>
 
         <div className='mt-12'>
-          <Title text1={'PAYMENT'} text2={'METHOD'} />
+          <Title2 text1={'PAYMENT'} text2={'METHOD'} />
           {/* -------------payment method selection------------- */}
           <div className='flex flex-col gap-3 lg:flex-row'>
             <div onClick={()=>setMethod('stripe')} className='flex items-center gap-3 p-2 px-3 border cursor-pointer'>

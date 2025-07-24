@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { ShopContext } from '../context/ShopContext';
 import { assets } from '../assets/assets';
-import Title from '../components/title';
+import Title2 from '../components/Title2';
 import ProductItem from '../components/ProductItem';
 
 const Collection = () => {
@@ -140,7 +140,7 @@ const Collection = () => {
       {/* Products Display */}
       <div className='flex-1'>
         <div className='flex justify-between mb-4 text-base sm:text-2xl'>
-          <Title text1='ALL' text2='COLLECTIONS' />
+          <Title2 text1='ALL' text2='COLLECTIONS' />
 
           <select
             onChange={(e) => setSortType(e.target.value)}

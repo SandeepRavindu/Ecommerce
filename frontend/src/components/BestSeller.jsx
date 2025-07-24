@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { ShopContext } from '../context/ShopContext';
-import Title from './title';
+import Title2 from './Title2';
 import ProductItem from './ProductItem'; // assumed import for rendering products
 
 const BestSeller = () => {
@@ -16,7 +16,7 @@ const BestSeller = () => {
     <div className='my-10'>
       {/* Section Title */}
       <div className='py-8 text-3xl text-center'>
-        <Title text1='BEST' text2='SELLERS' />
+        <Title2 text1='BEST' text2='SELLERS' />
         <p className='w-3/4 m-auto text-xs text-gray-600 sm:text-sm md:text-base'>
           Lorem Ipsum is simply dummy text of the printing and typesetting industry.
         </p>

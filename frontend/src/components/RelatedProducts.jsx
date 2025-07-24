@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { ShopContext } from '../context/ShopContext'
-import Title from './title'
+import Title2 from './Title2'
 import ProductItem from './ProductItem'
 
 const RelatedProducts = ({ category, subCategory }) => {
@@ -24,7 +24,7 @@ const RelatedProducts = ({ category, subCategory }) => {
   return (
     <div className='my-24'>
       <div className='py-2 text-3xl text-center'>
-        <Title text1={'RELATED'} text2={'PRODUCTS'} />
+        <Title2 text1={'RELATED'} text2={'PRODUCTS'} />
       </div>
       
       <div className='grid grid-cols-2 gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-y-6'>

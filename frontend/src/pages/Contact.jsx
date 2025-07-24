@@ -1,5 +1,5 @@
 import React from 'react'
-import Title from '../components/title'
+import Title2 from '../components/Title2'
 import { assets } from '../assets/assets'
 import NewsletterBox from '../components/NewsletterBox'
 
@@ -8,7 +8,7 @@ const Contact = () => {
     <div>
       {/* Contact Us Section */}
       <div className='pt-10 text-2xl text-center border-t'>
-        <Title text1={'CONTACT'} text2={'US'} />
+        <Title2 text1={'CONTACT'} text2={'US'} />
       </div>
 
       <div className='flex flex-col justify-center gap-10 my-10 md:flex-row mb-28'>
