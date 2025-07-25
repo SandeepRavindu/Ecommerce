@@ -1,14 +1,7 @@
 import multer from "multer";
 
-// Set up storage engine
-const storage = multer.diskStorage({
-  destination: function (req, file, callback) {
-    callback(null, 'uploads/'); 
-  },
-  filename: function (req, file, callback) {
-    callback(null, Date.now() + '-' + file.originalname);
-  }
-});
+// Use memory storage instead of disk storage since we're uploading to Cloudinary
+const storage = multer.memoryStorage();
 
 // Initialize upload middleware
 const upload = multer({ storage });

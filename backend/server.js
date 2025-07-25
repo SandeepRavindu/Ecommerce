@@ -19,9 +19,8 @@ connectCloudinary()
 app.use(express.json());
 app.use(cors());
 
-// Serve static files (images)
+// Serve static files (assets)
 app.use('/assets', express.static('assets'));
-app.use('/uploads', express.static('uploads'));
 
 // API Endpoints
 app.use('/api/user', userRouter);
