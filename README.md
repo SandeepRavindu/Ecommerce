@@ -1,3 +1,3 @@
 # Ecommerce
-frontend URL - https://ecommercefrontend-cvenoj20s-sandeepravindu112-9366s-projects.vercel.app/
-Admin URL - https://ecommerceadmin-fkxia39kn-sandeepravindu112-9366s-projects.vercel.app/
+frontend URL - https://ecommercefrontend-eight-alpha.vercel.app/
+Admin URL - https://ecommerceadmin-orpin.vercel.app/
