@@ -199,22 +199,6 @@ const Hero = () => {
       <div className='absolute w-3 h-3 rounded-full top-1/4 left-1/4 bg-white/30 animate-pulse'></div>
       <div className='absolute w-2 h-2 delay-500 rounded-full top-3/4 right-1/3 bg-white/40 animate-pulse'></div>
       <div className='absolute w-4 h-4 delay-1000 rounded-full top-1/3 right-1/4 bg-white/20 animate-pulse'></div>
-      
-      {/* Custom CSS for slide animation */}
-      <style jsx>{`
-        @keyframes slideIn {
-          from {
-            transform: translateX(-100%);
-          }
-          to {
-            transform: translateX(0);
-          }
-        }
-        
-        .animate-slideIn {
-          animation: slideIn 1s ease-in-out;
-        }
-      `}</style>
     </div>
   );
 };
