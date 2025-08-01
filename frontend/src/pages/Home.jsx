@@ -9,12 +9,14 @@ import NewsletterBox from '../components/NewsletterBox'
 
 const Home = () => {
   return (
-    <div>
+    <div className="w-full">
       <Hero />
-      <LatestCollections />
-      <BestSeller />
-      <OurPolicy />
-      <NewsletterBox />
+      <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
+        <LatestCollections />
+        <BestSeller />
+        <OurPolicy />
+        <NewsletterBox />
+      </div>
     </div>
   )
 }

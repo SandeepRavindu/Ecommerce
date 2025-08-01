@@ -5,30 +5,91 @@ import NewsletterBox from '../components/NewsletterBox'
 
 const Contact = () => {
   return (
-    <div>
-      {/* Contact Us Section */}
-      <div className='pt-10 text-2xl text-center border-t'>
-        <Title2 text1={'CONTACT'} text2={'US'} />
-      </div>
-
-      <div className='flex flex-col justify-center gap-10 my-10 md:flex-row mb-28'>
-        <img className='w-full md:max-w-[480px]' src={assets.contact_img} alt="Contact Us" />
-        <div className='flex flex-col items-start justify-center gap-6'>
-          
-          <p className='text-xl font-semibold text-gray-600'>Our Store</p>
-          <p className='text-gray-500'>54709 Willms Station <br /> Suite 350, Washington, USA</p>
-          <p className='text-gray-500'>Tel: (415) 555-0132 <br /> Email: admin@forever.com</p>
-          
-          <p className='text-xl font-semibold text-gray-600'>Careers at Forever</p>
-          <p className='text-gray-500'>Learn more about our teams and job openings.</p>
-          
-          <button className='px-8 py-4 text-sm transition-all duration-500 border border-black hover:bg-black hover:text-white'>
-            Explore Jobs
-          </button>
+    <div className='relative min-h-screen overflow-hidden bg-gradient-to-br from-gray-50 via-white to-blue-50/30'>
+      {/* Decorative Background Elements */}
+      <div className='absolute rounded-full w-96 h-96 -top-48 -right-48 bg-gradient-to-bl from-blue-100/40 to-purple-100/40 blur-3xl'></div>
+      <div className='absolute rounded-full w-80 h-80 -bottom-40 -left-40 bg-gradient-to-tr from-pink-100/30 to-orange-100/30 blur-3xl'></div>
+      
+      <div className='relative z-10 max-w-6xl px-6 mx-auto'>
+        {/* Contact Us Section */}
+        <div className='pt-12 pb-8 text-2xl text-center border-t border-gray-200/50'>
+          <div className='mb-4 transition-transform duration-300 transform hover:scale-105'>
+            <Title2 text1={'CONTACT'} text2={'US'} />
+          </div>
+          <div className='w-16 h-0.5 bg-gradient-to-r from-gray-400 via-gray-600 to-gray-400 rounded-full mx-auto'></div>
         </div>
+
+        <div className='flex flex-col justify-center gap-12 my-12 md:flex-row mb-28 lg:gap-16'>
+          {/* Image Section */}
+          <div className='relative group md:w-1/2'>
+            <div className='absolute transition-all duration-500 -inset-2 bg-gradient-to-r from-blue-200/20 via-purple-200/20 to-pink-200/20 rounded-2xl blur-lg group-hover:blur-xl'></div>
+            <img 
+              className='relative w-full h-[400px] md:h-[450px] lg:h-[500px] object-cover rounded-2xl shadow-xl transform group-hover:scale-[1.02] transition-all duration-500 border border-white/50' 
+              src={assets.contact_img} 
+              alt="Contact Us" 
+            />
+            {/* Image overlay effect */}
+            <div className='absolute inset-0 transition-opacity duration-300 opacity-0 bg-gradient-to-t from-black/10 via-transparent to-transparent rounded-2xl group-hover:opacity-100'></div>
+          </div>
+
+          {/* Content Section */}
+          <div className='flex flex-col items-start justify-center gap-8 md:w-1/2 lg:pl-6'>
+            
+            {/* Our Store Section */}
+            <div className='relative w-full p-6 overflow-hidden transition-all duration-300 border shadow-lg bg-white/80 backdrop-blur-sm rounded-xl border-gray-200/50 hover:shadow-xl hover:bg-white/90 group'>
+              <div className='absolute inset-0 transition-opacity duration-300 opacity-0 bg-gradient-to-r from-blue-50/30 to-transparent group-hover:opacity-100'></div>
+              <div className='relative z-10'>
+                <div className='flex items-center gap-3 mb-4'>
+                  <div className='flex items-center justify-center w-10 h-10 rounded-lg shadow-md bg-gradient-to-br from-blue-500 to-blue-600'>
+                    <div className='w-5 h-5 bg-white rounded-sm'></div>
+                  </div>
+                  <p className='text-xl font-semibold text-gray-800 transition-colors duration-300 group-hover:text-blue-700'>Our Store</p>
+                </div>
+                <div className='space-y-2 ml-13'>
+                  <p className='leading-relaxed text-gray-600'>54709 Willms Station <br /> Suite 350, Washington, USA</p>
+                  <p className='leading-relaxed text-gray-600'>Tel: (415) 555-0132 <br /> Email: admin@forever.com</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Careers Section */}
+            <div className='relative w-full p-6 overflow-hidden transition-all duration-300 border shadow-lg bg-white/80 backdrop-blur-sm rounded-xl border-gray-200/50 hover:shadow-xl hover:bg-white/90 group'>
+              <div className='absolute inset-0 transition-opacity duration-300 opacity-0 bg-gradient-to-r from-purple-50/30 to-transparent group-hover:opacity-100'></div>
+              <div className='relative z-10'>
+                <div className='flex items-center gap-3 mb-4'>
+                  <div className='flex items-center justify-center w-10 h-10 rounded-lg shadow-md bg-gradient-to-br from-purple-500 to-purple-600'>
+                    <div className='w-5 h-5 bg-white rounded-sm'></div>
+                  </div>
+                  <p className='text-xl font-semibold text-gray-800 transition-colors duration-300 group-hover:text-purple-700'>Careers at Forever</p>
+                </div>
+                <p className='mb-6 leading-relaxed text-gray-600 ml-13'>Learn more about our teams and job openings.</p>
+                
+                <div className='ml-13'>
+                  <button className='relative px-8 py-4 overflow-hidden text-sm font-medium transition-all duration-500 border border-gray-800 rounded-lg group/btn hover:shadow-lg'>
+                    <div className='absolute inset-0 transition-transform duration-300 transform -translate-x-full bg-gray-800 group-hover/btn:translate-x-0'></div>
+                    <span className='relative z-10 text-gray-800 transition-colors duration-300 group-hover/btn:text-white'>
+                      Explore Jobs
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Floating decorative elements */}
+        <div className='absolute w-6 h-6 rounded-full top-1/4 left-1/6 bg-blue-300/30 animate-pulse'></div>
+        <div className='absolute w-4 h-4 delay-500 rounded-full top-2/3 right-1/4 bg-purple-300/30 animate-pulse'></div>
+        <div className='absolute w-8 h-8 delay-1000 rounded-full top-1/2 right-1/6 bg-pink-300/30 animate-pulse'></div>
+        <div className='absolute w-5 h-5 delay-700 rounded-full top-1/3 left-1/3 bg-green-300/30 animate-pulse'></div>
+
+        {/* Additional spacing element */}
+        <div className='h-20'></div>
       </div>
 
-      <NewsletterBox />
+      <div className='relative z-10'>
+        <NewsletterBox />
+      </div>
     </div>
   )
 }

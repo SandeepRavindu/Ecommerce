@@ -59,121 +59,188 @@ const Cart = () => {
   const cartTotal = getCartAmount();
 
   return (
-    <div className="border-t pt-14">
-      <div className="mb-3 text-2xl">
-        <Title2 text1={"YOUR"} text2={"CART"} />
-      </div>
-
-      <div>
-        {cartData.length === 0 ? (
-          // Empty cart state
-          <div className="flex flex-col items-center justify-center py-16 text-center">
-            <div className="mb-4 text-6xl text-gray-300">🛒</div>
-            <h3 className="mb-2 text-xl font-medium text-gray-600">
-              Your Cart is Empty
-            </h3>
-            <p className="text-gray-500">
-              You haven't added any items to your cart yet.
-            </p>
-            <p className="text-gray-500">Start shopping to fill your cart!</p>
-            <button
-              onClick={() => navigate("/collection")}
-              className="px-6 py-3 mt-6 text-sm text-white transition-colors bg-black hover:bg-gray-800"
-            >
-              CONTINUE SHOPPING
-            </button>
+    <div className="min-h-screen bg-gray-50">
+      <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
+        <div className="pt-12 border-t border-gray-300">
+          {/* Header */}
+          <div className="mb-8">
+            <div className="flex items-center gap-4 mb-2">
+              <div className="flex items-center justify-center w-10 h-10 bg-white border border-gray-300 rounded-lg shadow-sm">
+                <svg className='w-6 h-6 text-gray-600' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                  <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5M17 17a2 2 0 11-4 0 2 2 0 014 0zM9 17a2 2 0 11-4 0 2 2 0 014 0z'></path>
+                </svg>
+              </div>
+              <Title2 text1={"YOUR"} text2={"CART"} />
+              {cartData.length > 0 && (
+                <span className="px-3 py-1.5 text-sm font-medium bg-gray-200 text-gray-700 rounded-full">
+                  {cartData.length} {cartData.length === 1 ? 'item' : 'items'}
+                </span>
+              )}
+            </div>
           </div>
-        ) : (
-          // Cart items list
-          cartData.map((item, index) => {
-            const productData = products.find(
-              (product) => product._id === item._id
-            );
 
-            return (
-              <div
-                key={index}
-                className="py-4 border-t border-b text-gray-700 grid grid-cols-[4fr_0.5fr_0.5fr] sm:grid-cols-[4fr_2fr_0.5fr] items-center gap-4"
-              >
-                <div className="flex items-start gap-6">
-                  <img
-                    className="w-16 sm:w-20"
-                    src={productData.image[0]}
-                    alt={productData.name}
-                  />
-                  <div>
-                    <p className="text-xs font-medium sm:text-lg">
-                      {productData.name}
-                    </p>
-                    <div className="flex items-center gap-5 mt-2">
-                      <p>
-                        {currency}
-                        {productData.price}
-                      </p>
-                      <p className="px-2 border sm:px-3 sm:py-1 bg-slate-50">
-                        {item.size}
-                      </p>
-                    </div>
+          <div className="flex flex-col gap-8 lg:flex-row">
+            {/* Cart Items Section */}
+            <div className="flex-1">
+              {cartData.length === 0 ? (
+                // Empty cart state
+                <div className="p-12 text-center bg-white border border-gray-300 shadow-sm rounded-xl">
+                  <div className="flex items-center justify-center w-24 h-24 mx-auto mb-6 bg-gray-100 rounded-full">
+                    <svg className='w-12 h-12 text-gray-400' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                      <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='1.5' d='M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5M17 17a2 2 0 11-4 0 2 2 0 014 0zM9 17a2 2 0 11-4 0 2 2 0 014 0z'></path>
+                    </svg>
+                  </div>
+                  <h3 className="mb-3 text-xl font-medium text-gray-900">
+                    Your Cart is Empty
+                  </h3>
+                  <p className="mb-2 text-gray-600">
+                    You haven't added any items to your cart yet.
+                  </p>
+                  <p className="mb-8 text-gray-600">Start shopping to fill your cart!</p>
+                  <button
+                    onClick={() => navigate("/collection")}
+                    className="px-8 py-3 font-medium text-white transition-colors bg-black rounded-lg hover:bg-gray-800"
+                  >
+                    CONTINUE SHOPPING
+                  </button>
+                </div>
+              ) : (
+                // Cart items list
+                <div className="overflow-hidden bg-white border border-gray-300 shadow-sm rounded-xl">
+                  <div className="p-6 border-b border-gray-200">
+                    <h2 className="text-lg font-semibold text-gray-900">Shopping Cart</h2>
+                  </div>
+                  
+                  <div className="divide-y divide-gray-200">
+                    {cartData.map((item, index) => {
+                      const productData = products.find(
+                        (product) => product._id === item._id
+                      );
+
+                      return (
+                        <div key={index} className="p-6 transition-colors hover:bg-gray-50">
+                          <div className="flex items-center gap-6">
+                            {/* Product Image */}
+                            <div className="flex-shrink-0">
+                              <div className="w-20 h-20 overflow-hidden bg-gray-100 border border-gray-200 rounded-xl">
+                                <img
+                                  className="object-cover w-full h-full"
+                                  src={productData.image[0]}
+                                  alt={productData.name}
+                                />
+                              </div>
+                            </div>
+
+                            {/* Product Details */}
+                            <div className="flex-1 min-w-0">
+                              <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                                <div className="flex-1">
+                                  <h3 className="mb-2 text-base font-medium text-gray-900">
+                                    {productData.name}
+                                  </h3>
+                                  <div className="flex items-center gap-4">
+                                    <span className="text-lg font-semibold text-gray-900">
+                                      {currency}{productData.price}
+                                    </span>
+                                    <span className="px-3 py-1 text-sm text-gray-700 bg-gray-100 border border-gray-200 rounded-lg">
+                                      Size: {item.size}
+                                    </span>
+                                  </div>
+                                </div>
+
+                                {/* Quantity and Remove */}
+                                <div className="flex items-center gap-4">
+                                  <div className="flex items-center gap-2">
+                                    <label className="text-sm font-medium text-gray-600">Qty:</label>
+                                    <input
+                                      onChange={(e) => handleQuantityChange(item._id, item.size, e)}
+                                      className="w-16 px-3 py-1.5 border border-gray-300 rounded-lg text-center focus:outline-none focus:ring-2 focus:ring-gray-500 focus:border-gray-500"
+                                      type="number"
+                                      min={1}
+                                      value={item.quantity}
+                                    />
+                                  </div>
+                                  
+                                  <button
+                                    onClick={() => handleRemoveItem(item._id, item.size)}
+                                    className="p-2 text-gray-400 transition-colors rounded-lg hover:text-red-500 hover:bg-red-50"
+                                    title="Remove item"
+                                  >
+                                    <svg className='w-5 h-5' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                                      <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16'></path>
+                                    </svg>
+                                  </button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })}
                   </div>
                 </div>
-                <input
-                  onChange={(e) => handleQuantityChange(item._id, item.size, e)}
-                  className="px-1 py-1 border max-w-10 sm:max-w-20 sm:px-2"
-                  type="number"
-                  min={1}
-                  value={item.quantity}
-                />
-                <img
-                  onClick={() => handleRemoveItem(item._id, item.size)}
-                  className="w-4 mr-4 cursor-pointer sm:w-5"
-                  src={assets.cross_icon}
-                  alt="Remove"
-                />
-              </div>
-            );
-          })
-        )}
-      </div>
+              )}
+            </div>
 
-      <div className="flex justify-end my-20">
-        {cartData.length > 0 && (
-          <div className="w-full sm:w-[450px]">
-            <div className="my-3 text-xl sm:text-2xl">
-              <Title2 text1={"CART"} text2={"TOTALS"} />
-            </div>
-            <div className="flex flex-col gap-2 mt-2 text-sm">
-              <div className="flex justify-between">
-                <p>Subtotal</p>
-                <p>
-                  {currency} {cartTotal}.00
-                </p>
+            {/* Cart Summary */}
+            {cartData.length > 0 && (
+              <div className="w-full lg:w-96">
+                <div className="sticky overflow-hidden bg-white border border-gray-300 shadow-sm rounded-xl top-6">
+                  <div className="p-6 border-b border-gray-200">
+                    <Title2 text1={"CART"} text2={"TOTALS"} />
+                  </div>
+                  
+                  <div className="p-6">
+                    <div className="space-y-4">
+                      <div className="flex items-center justify-between py-2">
+                        <span className="text-gray-600">Subtotal</span>
+                        <span className="font-medium text-gray-900">
+                          {currency} {cartTotal}.00
+                        </span>
+                      </div>
+                      
+                      <div className="border-t border-gray-200"></div>
+                      
+                      <div className="flex items-center justify-between py-2">
+                        <span className="text-gray-600">Shipping Fee</span>
+                        <span className="font-medium text-gray-900">
+                          {currency} {delivery_fee}.00
+                        </span>
+                      </div>
+                      
+                      <div className="border-t border-gray-200"></div>
+                      
+                      <div className="flex items-center justify-between py-2">
+                        <span className="text-lg font-semibold text-gray-900">Total</span>
+                        <span className="text-lg font-bold text-gray-900">
+                          {currency} {cartTotal === 0 ? 0 : cartTotal + delivery_fee}.00
+                        </span>
+                      </div>
+                    </div>
+                    
+                    <button
+                      className="w-full px-6 py-3 mt-6 font-medium text-white transition-colors bg-black rounded-lg hover:bg-gray-800 disabled:bg-gray-400 disabled:cursor-not-allowed"
+                      disabled={cartTotal === 0}
+                      onClick={handleProceedToCheckout}
+                    >
+                      PROCEED TO CHECKOUT
+                    </button>
+                    
+                    <button
+                      onClick={() => navigate("/collection")}
+                      className="w-full px-6 py-3 mt-3 font-medium text-gray-700 transition-colors border border-gray-300 rounded-lg hover:bg-gray-50"
+                    >
+                      CONTINUE SHOPPING
+                    </button>
+                  </div>
+                </div>
               </div>
-              <hr />
-              <div className="flex justify-between">
-                <p>Shipping Fee</p>
-                <p>
-                  {currency} {delivery_fee}.00
-                </p>
-              </div>
-              <hr />
-              <div className="flex justify-between">
-                <b>Total</b>
-                <b>
-                  {currency} {cartTotal === 0 ? 0 : cartTotal + delivery_fee}.00
-                </b>
-              </div>
-            </div>
-            <div className="w-full text-end">
-              <button
-                className="px-8 py-3 my-8 text-sm text-white transition-colors bg-black disabled:bg-gray-400 disabled:cursor-not-allowed hover:bg-gray-800"
-                disabled={cartTotal === 0}
-                onClick={handleProceedToCheckout}
-              >
-                PROCEED TO CHECKOUT
-              </button>
-            </div>
+            )}
           </div>
-        )}
+        </div>
+
+        {/* Bottom spacing */}
+        <div className='h-16'></div>
       </div>
     </div>
   );

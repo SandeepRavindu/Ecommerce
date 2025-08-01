@@ -14,7 +14,7 @@ const SearchBar = () => {
     } else {
       setVisible(false);
     }
-  }, [location]);
+  }, [location, showSearch]);
 
   return showSearch && visible ? (
     <div className="text-center border-t border-b bg-gray-50">
