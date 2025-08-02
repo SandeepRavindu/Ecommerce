@@ -5,26 +5,26 @@ import NewsletterBox from '../components/NewsletterBox'
 
 const Contact = () => {
   return (
-    <div className='relative min-h-screen overflow-hidden bg-gradient-to-br from-gray-50 via-white to-blue-50/30'>
+    <div className='relative min-h-screen overflow-hidden bg-gradient-to-b from-white/95 via-gray-50/98 to-white/95'>
       {/* Decorative Background Elements */}
-      <div className='absolute rounded-full w-96 h-96 -top-48 -right-48 bg-gradient-to-bl from-blue-100/40 to-purple-100/40 blur-3xl'></div>
-      <div className='absolute rounded-full w-80 h-80 -bottom-40 -left-40 bg-gradient-to-tr from-pink-100/30 to-orange-100/30 blur-3xl'></div>
+      <div className='absolute rounded-full w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 -top-32 -right-32 sm:-top-48 sm:-right-48 bg-gradient-to-bl from-blue-100/40 to-purple-100/40 blur-3xl'></div>
+      <div className='absolute rounded-full w-56 h-56 sm:w-72 sm:h-72 lg:w-80 lg:h-80 -bottom-28 -left-28 sm:-bottom-40 sm:-left-40 bg-gradient-to-tr from-pink-100/30 to-orange-100/30 blur-3xl'></div>
       
-      <div className='relative z-10 max-w-6xl px-6 mx-auto'>
+      <div className='relative z-10 max-w-6xl px-4 mx-auto sm:px-6'>
         {/* Contact Us Section */}
-        <div className='pt-12 pb-8 text-2xl text-center border-t border-gray-200/50'>
+        <div className='pt-8 pb-6 text-xl text-center border-t border-gray-200/50 sm:pt-12 sm:pb-8 sm:text-2xl'>
           <div className='mb-4 transition-transform duration-300 transform hover:scale-105'>
             <Title2 text1={'CONTACT'} text2={'US'} />
           </div>
-          <div className='w-16 h-0.5 bg-gradient-to-r from-gray-400 via-gray-600 to-gray-400 rounded-full mx-auto'></div>
+          <div className='w-12 h-0.5 bg-gradient-to-r from-gray-400 via-gray-600 to-gray-400 rounded-full mx-auto sm:w-16'></div>
         </div>
 
-        <div className='flex flex-col justify-center gap-12 my-12 md:flex-row mb-28 lg:gap-16'>
+        <div className='flex flex-col justify-center gap-8 my-8 md:flex-row md:gap-12 lg:gap-16 sm:my-12 mb-20 sm:mb-28'>
           {/* Image Section */}
           <div className='relative group md:w-1/2'>
             <div className='absolute transition-all duration-500 -inset-2 bg-gradient-to-r from-blue-200/20 via-purple-200/20 to-pink-200/20 rounded-2xl blur-lg group-hover:blur-xl'></div>
             <img 
-              className='relative w-full h-[400px] md:h-[450px] lg:h-[500px] object-cover rounded-2xl shadow-xl transform group-hover:scale-[1.02] transition-all duration-500 border border-white/50' 
+              className='relative w-full h-[280px] sm:h-[350px] md:h-[400px] lg:h-[500px] object-cover rounded-2xl shadow-xl transform group-hover:scale-[1.02] transition-all duration-500 border border-white/50' 
               src={assets.contact_img} 
               alt="Contact Us" 
             />
@@ -33,31 +33,31 @@ const Contact = () => {
           </div>
 
           {/* Content Section */}
-          <div className='flex flex-col items-start justify-center gap-8 md:w-1/2 lg:pl-6'>
+          <div className='flex flex-col items-start justify-center gap-6 md:w-1/2 lg:pl-6 sm:gap-8'>
             
             {/* Our Store Section */}
-            <div className='relative w-full p-6 overflow-hidden transition-all duration-300 border shadow-lg bg-white/80 backdrop-blur-sm rounded-xl border-gray-200/50 hover:shadow-xl hover:bg-white/90 group'>
+            <div className='relative w-full p-4 overflow-hidden transition-all duration-300 border shadow-lg bg-white/80 backdrop-blur-sm rounded-xl border-gray-200/50 hover:shadow-xl hover:bg-white/90 group sm:p-6'>
               <div className='absolute inset-0 transition-opacity duration-300 opacity-0 bg-gradient-to-r from-blue-50/30 to-transparent group-hover:opacity-100'></div>
               <div className='relative z-10'>
-                <div className='flex items-center gap-3 mb-4'>
-                  <div className='flex items-center justify-center w-10 h-10 rounded-lg shadow-md bg-gradient-to-br from-blue-500 to-blue-600'>
-                    <div className='w-5 h-5 bg-white rounded-sm'></div>
+                <div className='flex items-center gap-3 mb-3 sm:mb-4'>
+                  <div className='flex items-center justify-center w-8 h-8 rounded-lg shadow-md bg-gradient-to-br from-blue-500 to-blue-600 sm:w-10 sm:h-10'>
+                    <div className='w-4 h-4 bg-white rounded-sm sm:w-5 sm:h-5'></div>
                   </div>
-                  <p className='text-xl font-semibold text-gray-800 transition-colors duration-300 group-hover:text-blue-700'>Our Store</p>
+                  <p className='text-lg font-semibold text-gray-800 transition-colors duration-300 group-hover:text-blue-700 sm:text-xl'>Our Store</p>
                 </div>
-                <div className='space-y-2 ml-13'>
-                  <p className='leading-relaxed text-gray-600'>54709 Willms Station <br /> Suite 350, Washington, USA</p>
-                  <p className='leading-relaxed text-gray-600'>Tel: (415) 555-0132 <br /> Email: admin@forever.com</p>
+                <div className='space-y-1 ml-11 sm:ml-13 sm:space-y-2'>
+                  <p className='text-sm leading-relaxed text-gray-600 sm:text-base'>54709 Willms Station <br /> Suite 350, Washington, USA</p>
+                  <p className='text-sm leading-relaxed text-gray-600 sm:text-base'>Tel: (415) 555-0132 <br /> Email: admin@forever.com</p>
                 </div>
               </div>
             </div>
 
             {/* Careers Section */}
-            <div className='relative w-full p-6 overflow-hidden transition-all duration-300 border shadow-lg bg-white/80 backdrop-blur-sm rounded-xl border-gray-200/50 hover:shadow-xl hover:bg-white/90 group'>
+            <div className='relative w-full p-4 overflow-hidden transition-all duration-300 border shadow-lg bg-white/80 backdrop-blur-sm rounded-xl border-gray-200/50 hover:shadow-xl hover:bg-white/90 group sm:p-6'>
               <div className='absolute inset-0 transition-opacity duration-300 opacity-0 bg-gradient-to-r from-purple-50/30 to-transparent group-hover:opacity-100'></div>
               <div className='relative z-10'>
-                <div className='flex items-center gap-3 mb-4'>
-                  <div className='flex items-center justify-center w-10 h-10 rounded-lg shadow-md bg-gradient-to-br from-purple-500 to-purple-600'>
+                <div className='flex items-center gap-3 mb-3 sm:mb-4'>
+                  <div className='flex items-center justify-center w-8 h-8 rounded-lg shadow-md bg-gradient-to-br from-purple-500 to-purple-600 sm:w-10 sm:h-10'>
                     <div className='w-5 h-5 bg-white rounded-sm'></div>
                   </div>
                   <p className='text-xl font-semibold text-gray-800 transition-colors duration-300 group-hover:text-purple-700'>Careers at Forever</p>

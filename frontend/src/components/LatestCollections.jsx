@@ -56,10 +56,6 @@ const LatestCollection = () => {
             <div 
               key={index}
               className='relative transition-all duration-500 transform group hover:scale-105 hover:-translate-y-2'
-              style={{ 
-                animationDelay: `${index * 100}ms`,
-                animation: 'fadeInUp 0.8s ease-out forwards'
-              }}
             >
               {/* Glow effect on hover */}
               <div className='absolute transition-all duration-500 -inset-2 bg-gradient-to-r from-blue-200/0 via-purple-200/0 to-pink-200/0 group-hover:from-blue-200/20 group-hover:via-purple-200/20 group-hover:to-pink-200/20 rounded-2xl blur-xl -z-10'></div>

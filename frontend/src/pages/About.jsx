@@ -5,25 +5,25 @@ import NewsletterBox from '../components/NewsletterBox'
 
 const About = () => {
   return (
-    <div className='relative min-h-screen overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100'>
+    <div className='relative min-h-screen overflow-hidden bg-gradient-to-b from-white/95 via-gray-50/98 to-white/95'>
       {/* Decorative Background Elements */}
-      <div className='absolute rounded-full w-96 h-96 -top-48 -left-48 bg-gradient-to-br from-blue-100/30 to-purple-100/30 blur-3xl'></div>
-      <div className='absolute rounded-full w-80 h-80 -bottom-40 -right-40 bg-gradient-to-tl from-pink-100/30 to-orange-100/30 blur-3xl'></div>
+      <div className='absolute rounded-full w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 -top-32 -left-32 sm:-top-48 sm:-left-48 bg-gradient-to-br from-blue-100/30 to-purple-100/30 blur-3xl'></div>
+      <div className='absolute rounded-full w-56 h-56 sm:w-72 sm:h-72 lg:w-80 lg:h-80 -bottom-28 -right-28 sm:-bottom-40 sm:-right-40 bg-gradient-to-tl from-pink-100/30 to-orange-100/30 blur-3xl'></div>
       
-      <div className='relative z-10 max-w-6xl px-6 mx-auto'>
+      <div className='relative z-10 max-w-6xl px-4 mx-auto sm:px-6'>
         {/* About Us Section */}
-        <div className='pt-12 pb-8 text-2xl text-center border-t border-gray-200/50'>
+        <div className='pt-8 pb-6 text-xl text-center border-t border-gray-200/50 sm:pt-12 sm:pb-8 sm:text-2xl'>
           <div className='mb-4 transition-transform duration-300 transform hover:scale-105'>
             <Title2 text1={'ABOUT'} text2={'US'} />
           </div>
-          <div className='w-16 h-0.5 bg-gradient-to-r from-gray-400 via-gray-600 to-gray-400 rounded-full mx-auto'></div>
+          <div className='w-12 h-0.5 bg-gradient-to-r from-gray-400 via-gray-600 to-gray-400 rounded-full mx-auto sm:w-16'></div>
         </div>
 
-        <div className='flex flex-col items-start gap-12 my-12 md:flex-row lg:gap-16'>
+        <div className='flex flex-col items-start gap-8 my-8 md:flex-row md:gap-12 lg:gap-16 sm:my-12'>
           <div className='relative w-full group md:w-1/2'>
             <div className='absolute transition-all duration-500 -inset-2 bg-gradient-to-r from-blue-200/15 via-purple-200/15 to-pink-200/15 rounded-2xl blur-lg group-hover:blur-xl'></div>
             <img 
-              className='relative w-full h-[400px] md:h-[450px] lg:h-[500px] object-cover rounded-2xl shadow-xl transform group-hover:scale-[1.02] transition-all duration-500 border border-white/50' 
+              className='relative w-full h-[280px] sm:h-[350px] md:h-[400px] lg:h-[500px] object-cover rounded-2xl shadow-xl transform group-hover:scale-[1.02] transition-all duration-500 border border-white/50' 
               src={assets.about_img} 
               alt="About Us" 
             />
@@ -31,31 +31,31 @@ const About = () => {
             <div className='absolute inset-0 transition-opacity duration-300 opacity-0 bg-gradient-to-t from-black/5 via-transparent to-transparent rounded-2xl group-hover:opacity-100'></div>
           </div>
           
-          <div className='flex flex-col justify-center gap-6 text-gray-600 md:w-1/2 lg:pl-6'>
-            <div className='space-y-6'>
+          <div className='flex flex-col justify-center gap-4 text-gray-600 md:w-1/2 lg:pl-6 sm:gap-6'>
+            <div className='space-y-4 sm:space-y-6'>
               <div className='transition-transform duration-300 transform hover:translate-x-1'>
-                <p className='relative p-6 overflow-hidden text-base leading-relaxed transition-all duration-300 border shadow-md bg-white/80 backdrop-blur-sm rounded-xl border-gray-200/50 hover:shadow-lg hover:bg-white/90 group'>
+                <div className='relative p-4 overflow-hidden text-sm leading-relaxed transition-all duration-300 border shadow-md bg-white/80 backdrop-blur-sm rounded-xl border-gray-200/50 hover:shadow-lg hover:bg-white/90 group sm:p-6 sm:text-base'>
                   <div className='absolute inset-0 transition-opacity duration-300 opacity-0 bg-gradient-to-r from-blue-50/20 to-transparent group-hover:opacity-100'></div>
                   <span className='relative z-10'>Forever was born out of a passion for innovation and a desire to revolutionize the way people shop online. Our journey began with a simple idea: to provide a platform where customers can easily discover, explore, and purchase a wide range of products from the comfort of their homes.</span>
-                </p>
+                </div>
               </div>
               
               <div className='transition-transform duration-300 delay-75 transform hover:translate-x-1'>
-                <p className='relative p-6 overflow-hidden text-base leading-relaxed transition-all duration-300 border shadow-md bg-white/80 backdrop-blur-sm rounded-xl border-gray-200/50 hover:shadow-lg hover:bg-white/90 group'>
+                <div className='relative p-4 overflow-hidden text-sm leading-relaxed transition-all duration-300 border shadow-md bg-white/80 backdrop-blur-sm rounded-xl border-gray-200/50 hover:shadow-lg hover:bg-white/90 group sm:p-6 sm:text-base'>
                   <div className='absolute inset-0 transition-opacity duration-300 opacity-0 bg-gradient-to-r from-purple-50/20 to-transparent group-hover:opacity-100'></div>
                   <span className='relative z-10'>Since our inception, we've worked tirelessly to curate a diverse selection of high-quality products that cater to every taste and preference. From fashion and beauty to electronics and home essentials, we offer an extensive collection sourced from trusted brands and suppliers.</span>
-                </p>
+                </div>
               </div>
               
               <div className='transition-transform duration-300 delay-150 transform hover:translate-x-1'>
-                <div className='relative p-6 overflow-hidden transition-all duration-300 border shadow-lg bg-gradient-to-br from-gray-100/70 via-white/80 to-gray-50/70 backdrop-blur-sm rounded-xl border-gray-300/50 hover:shadow-xl group'>
+                <div className='relative p-4 overflow-hidden transition-all duration-300 border shadow-lg bg-gradient-to-br from-gray-100/70 via-white/80 to-gray-50/70 backdrop-blur-sm rounded-xl border-gray-300/50 hover:shadow-xl group sm:p-6'>
                   <div className='absolute inset-0 transition-opacity duration-300 opacity-0 bg-gradient-to-r from-gray-200/15 to-transparent group-hover:opacity-100'></div>
                   <div className='relative z-10'>
-                    <b className='flex items-center block gap-2 mb-4 text-lg font-bold tracking-wide text-gray-800'>
-                      <div className='w-1.5 h-6 bg-gradient-to-b from-gray-600 to-gray-800 rounded-full'></div>
+                    <b className='flex items-center block gap-2 mb-3 text-base font-bold tracking-wide text-gray-800 sm:mb-4 sm:text-lg'>
+                      <div className='w-1.5 h-5 bg-gradient-to-b from-gray-600 to-gray-800 rounded-full sm:h-6'></div>
                       Our Mission
                     </b>
-                    <p className='text-base leading-relaxed text-gray-700'>
+                    <p className='text-sm leading-relaxed text-gray-700 sm:text-base'>
                       Our mission at Forever is to empower customers with choice, convenience, and confidence. We're dedicated to providing a seamless shopping experience that exceeds expectations, from browsing and ordering to delivery and beyond.
                     </p>
                   </div>
@@ -66,15 +66,15 @@ const About = () => {
         </div>
 
         {/* Why Choose Us Section */}
-        <div className='py-8 mt-16 text-xl text-center'>
+        <div className='py-6 mt-12 text-lg text-center sm:py-8 sm:mt-16 sm:text-xl'>
           <div className='mb-4 transition-transform duration-300 transform hover:scale-105'>
             <Title2 text1={'WHY'} text2={'CHOOSE US'} />
           </div>
-          <div className='w-20 h-0.5 bg-gradient-to-r from-gray-400 via-gray-600 to-gray-400 rounded-full mx-auto'></div>
+          <div className='w-16 h-0.5 bg-gradient-to-r from-gray-400 via-gray-600 to-gray-400 rounded-full mx-auto sm:w-20'></div>
         </div>
 
-        <div className='flex flex-col gap-6 mb-20 text-sm md:flex-row'>
-          <div className='relative flex flex-col gap-5 px-8 py-12 overflow-hidden transition-all duration-300 border shadow-lg bg-white/80 backdrop-blur-sm border-gray-200/50 rounded-xl hover:shadow-xl hover:bg-white/90 group'>
+        <div className='flex flex-col gap-4 mb-16 text-sm md:flex-row md:gap-6 sm:mb-20 sm:text-sm'>
+          <div className='relative flex flex-col gap-4 px-6 py-8 overflow-hidden transition-all duration-300 border shadow-lg bg-white/80 backdrop-blur-sm border-gray-200/50 rounded-xl hover:shadow-xl hover:bg-white/90 group sm:px-8 sm:py-12 sm:gap-5'>
             {/* Animated background */}
             <div className='absolute inset-0 transition-opacity duration-300 opacity-0 bg-gradient-to-br from-blue-50/40 to-purple-50/40 group-hover:opacity-100'></div>
             

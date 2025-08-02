@@ -95,26 +95,26 @@ const Collection = () => {
   }, [sortType]);
 
   return (
-    <div className='relative min-h-screen overflow-hidden bg-gradient-to-br from-gray-50 via-white to-gray-100'>
+    <div className='relative min-h-screen overflow-hidden bg-gradient-to-b from-white/95 via-gray-50/98 to-white/95'>
       {/* Decorative Background Elements */}
-      <div className='absolute rounded-full w-96 h-96 -top-48 -left-48 bg-gradient-to-br from-blue-100/30 to-purple-100/30 blur-3xl'></div>
-      <div className='absolute rounded-full w-80 h-80 -bottom-40 -right-40 bg-gradient-to-tl from-pink-100/30 to-orange-100/30 blur-3xl'></div>
+      <div className='absolute rounded-full w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 -top-32 -left-32 sm:-top-48 sm:-left-48 bg-gradient-to-br from-blue-100/30 to-purple-100/30 blur-3xl'></div>
+      <div className='absolute rounded-full w-56 h-56 sm:w-72 sm:h-72 lg:w-80 lg:h-80 -bottom-28 -right-28 sm:-bottom-40 sm:-right-40 bg-gradient-to-tl from-pink-100/30 to-orange-100/30 blur-3xl'></div>
       
       <div className='relative z-10 px-4 sm:px-6 md:px-8'>
-        <div className='flex flex-col gap-10 pt-12 border-t border-gray-200/50 sm:flex-row sm:gap-16'>
+        <div className='flex flex-col gap-6 pt-8 border-t border-gray-200/50 sm:flex-row sm:gap-10 lg:gap-16 sm:pt-12'>
           
           {/* Filters Sidebar */}
-          <div className='min-w-80'>
-            <div className='p-6 transition-all duration-300 border shadow-lg bg-white/80 backdrop-blur-sm rounded-xl border-gray-200/50 hover:shadow-xl hover:bg-white/90'>
+          <div className='w-full sm:min-w-64 lg:min-w-80 sm:w-auto'>
+            <div className='p-4 transition-all duration-300 border shadow-lg bg-white/80 backdrop-blur-sm rounded-xl border-gray-200/50 hover:shadow-xl hover:bg-white/90 sm:p-6'>
               <div
                 onClick={() => setShowFilter(!showFilter)}
-                className='flex items-center justify-between gap-3 mb-6 cursor-pointer group'
+                className='flex items-center justify-between gap-3 mb-4 cursor-pointer group sm:mb-6'
               >
                 <div className='flex items-center gap-2'>
                   <svg className='w-4 h-4 text-gray-700 transition-colors duration-300 group-hover:text-gray-600' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
                     <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M3 4a1 1 0 011-1h16a1 1 0 011 1v2.586a1 1 0 01-.293.707l-6.414 6.414a1 1 0 00-.293.707V17l-4 4v-6.586a1 1 0 00-.293-.707L3.293 7.707A1 1 0 013 7V4z'></path>
                   </svg>
-                  <h2 className='text-base font-medium text-gray-900 transition-colors duration-300 group-hover:text-gray-700'>Filters</h2>
+                  <h2 className='text-sm font-medium text-gray-900 transition-colors duration-300 group-hover:text-gray-700 sm:text-base'>Filters</h2>
                 </div>
                 <svg
                   className={`h-4 w-4 text-gray-500 sm:hidden transition-transform duration-300 group-hover:text-gray-600 ${showFilter ? 'rotate-90' : ''}`}
@@ -127,18 +127,18 @@ const Collection = () => {
               </div>
 
               {/* Category Filter */}
-              <div className={`mb-7 ${showFilter ? '' : 'hidden'} sm:block`}>
-                <h3 className='mb-4 text-sm font-medium tracking-wide text-gray-900 uppercase'>Categories</h3>
-                <div className='space-y-2.5'>
+              <div className={`mb-5 sm:mb-7 ${showFilter ? '' : 'hidden'} sm:block`}>
+                <h3 className='mb-3 text-xs font-medium tracking-wide text-gray-900 uppercase sm:mb-4 sm:text-sm'>Categories</h3>
+                <div className='space-y-2 sm:space-y-2.5'>
                   {['Men', 'Women', 'Kids'].map((cat) => (
-                    <label key={cat} className='flex items-center gap-2.5 cursor-pointer'>
+                    <label key={cat} className='flex items-center gap-2 cursor-pointer sm:gap-2.5'>
                       <input 
-                        className='w-4 h-4 text-gray-800 border-gray-400 rounded focus:ring-gray-600 focus:ring-1' 
+                        className='w-3.5 h-3.5 text-gray-800 border-gray-400 rounded focus:ring-gray-600 focus:ring-1 sm:w-4 sm:h-4' 
                         type='checkbox' 
                         value={cat} 
                         onChange={toggleCategory} 
                       />
-                      <span className='text-sm text-gray-700'>{cat}</span>
+                      <span className='text-xs text-gray-700 sm:text-sm'>{cat}</span>
                     </label>
                   ))}
                 </div>
@@ -146,8 +146,8 @@ const Collection = () => {
 
               {/* SubCategory Filter */}
               <div className={`${showFilter ? '' : 'hidden'} sm:block`}>
-                <h3 className='mb-4 text-sm font-medium tracking-wide text-gray-900 uppercase'>Type</h3>
-                <div className='space-y-2.5'>
+                <h3 className='mb-3 text-xs font-medium tracking-wide text-gray-900 uppercase sm:mb-4 sm:text-sm'>Type</h3>
+                <div className='space-y-2 sm:space-y-2.5'>
                   {['Topwear', 'Bottomwear', 'Winterwear'].map((type) => (
                     <label key={type} className='flex items-center gap-2.5 cursor-pointer'>
                       <input 
@@ -199,9 +199,6 @@ const Collection = () => {
                   key={index}
                   onClick={() => handleProductClick(item._id)}
                   className='relative transition-all duration-500 transform cursor-pointer group hover:scale-105 hover:-translate-y-2 h-full'
-                  style={{ 
-                    animationDelay: `${index * 50}ms`,
-                  }}
                 >
                   {/* Glow effect on hover */}
                   <div className='absolute transition-all duration-500 -inset-2 bg-gradient-to-r from-blue-200/0 via-purple-200/0 to-pink-200/0 group-hover:from-blue-200/20 group-hover:via-purple-200/20 group-hover:to-pink-200/20 rounded-2xl blur-xl -z-10'></div>

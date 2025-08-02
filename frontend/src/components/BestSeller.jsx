@@ -69,10 +69,6 @@ const BestSeller = () => {
             <div 
               key={index}
               className='relative transition-all duration-700 transform group hover:scale-110 hover:-translate-y-4'
-              style={{ 
-                animationDelay: `${index * 150}ms`,
-                animation: 'slideInUp 1s ease-out forwards'
-              }}
             >
               {/* Premium glow effect */}
               <div className='absolute transition-all duration-700 -inset-4 bg-gradient-to-r from-amber-200/0 via-yellow-200/0 to-orange-200/0 group-hover:from-amber-200/30 group-hover:via-yellow-200/30 group-hover:to-orange-200/30 rounded-3xl blur-2xl -z-10'></div>

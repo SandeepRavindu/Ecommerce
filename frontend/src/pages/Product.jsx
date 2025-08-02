@@ -61,7 +61,13 @@ const Product = () => {
     setSize('')
     setQuantity(1)
     setImageLoading(true)
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    
+    // Ensure scroll to top happens after DOM updates
+    setTimeout(() => {
+      window.scrollTo(0, 0)
+      document.documentElement.scrollTop = 0
+      document.body.scrollTop = 0
+    }, 0)
   }, [productId, products])
 
   return productData ? (
@@ -77,15 +83,15 @@ const Product = () => {
       </nav>
 
       {/* Product Data */}
-      <div className='grid grid-cols-1 gap-12 mb-16 lg:grid-cols-2'>
+      <div className='grid grid-cols-1 gap-8 mb-12 lg:grid-cols-2 lg:gap-12 lg:mb-16'>
         
         {/* Product Images */}
-        <div className='space-y-4'>
+        <div className='space-y-3 sm:space-y-4'>
           {/* Main Image */}
-          <div className='relative overflow-hidden bg-gray-50 rounded-2xl group'>
+          <div className='relative overflow-hidden bg-gray-50 rounded-xl group sm:rounded-2xl'>
             {imageLoading && (
               <div className='absolute inset-0 flex items-center justify-center bg-gray-200 animate-pulse'>
-                <div className='w-8 h-8 border-4 border-gray-300 rounded-full border-t-gray-600 animate-spin'></div>
+                <div className='w-6 h-6 border-4 border-gray-300 rounded-full border-t-gray-600 animate-spin sm:w-8 sm:h-8'></div>
               </div>
             )}
             <img 
@@ -96,15 +102,15 @@ const Product = () => {
             />
             
             {/* Zoom Icon */}
-            <div className='absolute p-2 transition-opacity duration-300 rounded-full opacity-0 top-4 right-4 bg-white/80 backdrop-blur-sm group-hover:opacity-100'>
-              <svg className='w-5 h-5 text-gray-700' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+            <div className='absolute p-1.5 transition-opacity duration-300 rounded-full opacity-0 top-3 right-3 bg-white/80 backdrop-blur-sm group-hover:opacity-100 sm:p-2 sm:top-4 sm:right-4'>
+              <svg className='w-4 h-4 text-gray-700 sm:w-5 sm:h-5' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
                 <path strokeLinecap='round' strokeLinejoin='round' strokeWidth={2} d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7' />
               </svg>
             </div>
           </div>
 
           {/* Thumbnail Images */}
-          <div className='flex gap-3 pb-2 overflow-x-auto'>
+          <div className='flex gap-2 pb-2 overflow-x-auto sm:gap-3'>
             {productData.image.map((item, index) => (
               <img 
                 onClick={() => {
@@ -113,7 +119,7 @@ const Product = () => {
                 }}
                 src={item} 
                 key={index} 
-                className={`w-20 h-20 object-cover rounded-lg cursor-pointer transition-all duration-300 flex-shrink-0 ${
+                className={`w-16 h-16 object-cover rounded-md cursor-pointer transition-all duration-300 flex-shrink-0 sm:w-20 sm:h-20 sm:rounded-lg ${
                   image === item 
                     ? 'ring-2 ring-blue-500 ring-offset-2 scale-105' 
                     : 'hover:ring-2 hover:ring-gray-300 hover:ring-offset-2 opacity-70 hover:opacity-100'
@@ -125,20 +131,20 @@ const Product = () => {
         </div>
 
         {/* Product Info */}
-        <div className='space-y-6'>
+        <div className='space-y-4 sm:space-y-6'>
           {/* Header */}
           <div>
-            <h1 className='mb-4 text-3xl font-bold text-gray-800 lg:text-4xl'>{productData.name}</h1>
+            <h1 className='mb-3 text-2xl font-bold text-gray-800 sm:mb-4 sm:text-3xl lg:text-4xl'>{productData.name}</h1>
             
             {/* Rating */}
-            <div className='flex items-center gap-4 mb-4'>
+            <div className='flex items-center gap-3 mb-3 sm:gap-4 sm:mb-4'>
               <div className='flex items-center gap-1'>
                 {[...Array(5)].map((_, i) => (
-                  <svg key={i} className={`w-5 h-5 ${i < 4 ? 'text-yellow-400' : 'text-gray-300'} fill-current`} viewBox='0 0 20 20'>
+                  <svg key={i} className={`w-4 h-4 sm:w-5 sm:h-5 ${i < 4 ? 'text-yellow-400' : 'text-gray-300'} fill-current`} viewBox='0 0 20 20'>
                     <path d='M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z' />
                   </svg>
                 ))}
-                <span className='ml-2 text-sm text-gray-600'>(122 reviews)</span>
+                <span className='ml-2 text-xs text-gray-600 sm:text-sm'>(122 reviews)</span>
               </div>
               
               {/* Wishlist Button */}

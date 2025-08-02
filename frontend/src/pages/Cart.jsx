@@ -59,44 +59,44 @@ const Cart = () => {
   const cartTotal = getCartAmount();
 
   return (
-    <div className="min-h-screen bg-gray-50">
+    <div className="min-h-screen bg-gradient-to-b from-white/95 via-gray-50/98 to-white/95">
       <div className="px-4 sm:px-[5vw] md:px-[7vw] lg:px-[9vw]">
-        <div className="pt-12 border-t border-gray-300">
+        <div className="pt-8 border-t border-gray-300 sm:pt-12">
           {/* Header */}
-          <div className="mb-8">
-            <div className="flex items-center gap-4 mb-2">
-              <div className="flex items-center justify-center w-10 h-10 bg-white border border-gray-300 rounded-lg shadow-sm">
-                <svg className='w-6 h-6 text-gray-600' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+          <div className="mb-6 sm:mb-8">
+            <div className="flex items-center gap-3 mb-2 sm:gap-4">
+              <div className="flex items-center justify-center w-8 h-8 bg-white border border-gray-300 rounded-lg shadow-sm sm:w-10 sm:h-10">
+                <svg className='w-5 h-5 text-gray-600 sm:w-6 sm:h-6' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
                   <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5M17 17a2 2 0 11-4 0 2 2 0 014 0zM9 17a2 2 0 11-4 0 2 2 0 014 0z'></path>
                 </svg>
               </div>
               <Title2 text1={"YOUR"} text2={"CART"} />
               {cartData.length > 0 && (
-                <span className="px-3 py-1.5 text-sm font-medium bg-gray-200 text-gray-700 rounded-full">
+                <span className="px-2 py-1 text-xs font-medium bg-gray-200 text-gray-700 rounded-full sm:px-3 sm:py-1.5 sm:text-sm">
                   {cartData.length} {cartData.length === 1 ? 'item' : 'items'}
                 </span>
               )}
             </div>
           </div>
 
-          <div className="flex flex-col gap-8 lg:flex-row">
+          <div className="flex flex-col gap-6 lg:flex-row lg:gap-8">
             {/* Cart Items Section */}
             <div className="flex-1">
               {cartData.length === 0 ? (
                 // Empty cart state
-                <div className="p-12 text-center bg-white border border-gray-300 shadow-sm rounded-xl">
-                  <div className="flex items-center justify-center w-24 h-24 mx-auto mb-6 bg-gray-100 rounded-full">
-                    <svg className='w-12 h-12 text-gray-400' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                <div className="p-8 text-center bg-white border border-gray-300 shadow-sm rounded-xl sm:p-12">
+                  <div className="flex items-center justify-center w-16 h-16 mx-auto mb-4 bg-gray-100 rounded-full sm:w-24 sm:h-24 sm:mb-6">
+                    <svg className='w-8 h-8 text-gray-400 sm:w-12 sm:h-12' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
                       <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='1.5' d='M3 3h2l.4 2M7 13h10l4-8H5.4m0 0L7 13m0 0l-2.5 5M7 13l2.5 5M17 17a2 2 0 11-4 0 2 2 0 014 0zM9 17a2 2 0 11-4 0 2 2 0 014 0z'></path>
                     </svg>
                   </div>
-                  <h3 className="mb-3 text-xl font-medium text-gray-900">
+                  <h3 className="mb-2 text-lg font-medium text-gray-900 sm:mb-3 sm:text-xl">
                     Your Cart is Empty
                   </h3>
-                  <p className="mb-2 text-gray-600">
+                  <p className="mb-1 text-sm text-gray-600 sm:mb-2 sm:text-base">
                     You haven't added any items to your cart yet.
                   </p>
-                  <p className="mb-8 text-gray-600">Start shopping to fill your cart!</p>
+                  <p className="mb-6 text-sm text-gray-600 sm:mb-8 sm:text-base">Start shopping to fill your cart!</p>
                   <button
                     onClick={() => navigate("/collection")}
                     className="px-8 py-3 font-medium text-white transition-colors bg-black rounded-lg hover:bg-gray-800"

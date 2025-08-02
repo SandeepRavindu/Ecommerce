@@ -54,24 +54,24 @@ const Login = () => {
   },[token])
 
   return (
-    <div className=' pt-10 border-t h-[500px]'>
-      <form onSubmit={onSubmitHandler} className=' flex flex-col gap-4 items-center w-[90%] sm:max-w-96 m-auto mt-14 text-gray-800'>
-      <div className='inline-flex items-center gap-2 mb-2 mt-10'>
-        <p className='prata-regular text-3xl '>{currentState}</p>
-        <hr className='border-none h-[1.5px] w-8 bg-gray-800'/>
+    <div className='pt-6 border-t bg-gradient-to-b from-white/95 via-gray-50/98 to-white/95 min-h-screen sm:pt-10'>
+      <form onSubmit={onSubmitHandler} className='flex flex-col gap-3 items-center w-[90%] sm:max-w-96 m-auto mt-8 text-gray-800 sm:gap-4 sm:mt-14'>
+      <div className='inline-flex items-center gap-2 mb-2 mt-6 sm:mt-10'>
+        <p className='prata-regular text-2xl sm:text-3xl'>{currentState}</p>
+        <hr className='border-none h-[1.5px] w-6 bg-gray-800 sm:w-8'/>
       </div>
-      {currentState === 'Login' ? '' : <input onChange={(e) => setName(e.target.value)} value={name} type='text' className='w-full px-3 py-2 border border-gray-800' placeholder='Name' required/>}
-      <input onChange={(e) => setEmail(e.target.value)} value={email} type='email' className='w-full px-3 py-2 border border-gray-800' placeholder='Email' required/>
-      <input onChange={(e) => setPassword(e.target.value)} value={password} type='password' className='w-full px-3 py-2 border border-gray-800' placeholder='Password' required/>
-      <div className='w-full flex justify-between text-sm mt-[-8px]'>
-        <p className='cursor-pointer'>Forgot your password?</p>
+      {currentState === 'Login' ? '' : <input onChange={(e) => setName(e.target.value)} value={name} type='text' className='w-full px-3 py-2 border border-gray-800 rounded-md text-sm sm:text-base' placeholder='Name' required/>}
+      <input onChange={(e) => setEmail(e.target.value)} value={email} type='email' className='w-full px-3 py-2 border border-gray-800 rounded-md text-sm sm:text-base' placeholder='Email' required/>
+      <input onChange={(e) => setPassword(e.target.value)} value={password} type='password' className='w-full px-3 py-2 border border-gray-800 rounded-md text-sm sm:text-base' placeholder='Password' required/>
+      <div className='w-full flex justify-between text-xs mt-[-4px] sm:text-sm sm:mt-[-8px]'>
+        <p className='cursor-pointer hover:text-gray-600'>Forgot your password?</p>
         {
           currentState === 'Login' ? 
-          <p onClick={()=>setCurrentState('Sign Up')} className='cursor-pointer'>Create an account</p> : 
-          <p onClick={()=>setCurrentState('Login')} className='cursor-pointer'>Login Here</p>
+          <p onClick={()=>setCurrentState('Sign Up')} className='cursor-pointer hover:text-gray-600'>Create an account</p> : 
+          <p onClick={()=>setCurrentState('Login')} className='cursor-pointer hover:text-gray-600'>Login Here</p>
         }
       </div>
-      <button className='bg-black text-white font-light px-8 py-2 mt-4'>{currentState === 'Login' ? 'Sign In' : 'Sign Up'}</button>
+      <button className='bg-black text-white font-light px-6 py-2 mt-3 rounded-md transition-all duration-300 hover:bg-gray-800 text-sm sm:px-8 sm:mt-4 sm:text-base'>{currentState === 'Login' ? 'Sign In' : 'Sign Up'}</button>
     </form>
    
     </div>

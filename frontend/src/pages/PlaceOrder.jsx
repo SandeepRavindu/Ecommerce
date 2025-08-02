@@ -111,34 +111,34 @@ const PlaceOrder = () => {
   // })
 
   return (
-    <div className='relative min-h-screen overflow-hidden bg-gradient-to-br from-gray-50 via-white to-blue-50/20'>
+    <div className='relative min-h-screen overflow-hidden bg-gradient-to-b from-white/95 via-gray-50/98 to-white/95'>
       {/* Decorative Background Elements */}
-      <div className='absolute rounded-full w-96 h-96 -top-48 -right-48 bg-gradient-to-bl from-blue-100/30 to-purple-100/30 blur-3xl animate-pulse'></div>
-      <div className='absolute delay-1000 rounded-full w-80 h-80 -bottom-40 -left-40 bg-gradient-to-tr from-pink-100/20 to-orange-100/20 blur-3xl animate-pulse'></div>
-      <div className='absolute w-64 h-64 delay-500 rounded-full top-1/3 -left-32 bg-gradient-to-r from-green-100/20 to-teal-100/20 blur-2xl animate-pulse'></div>
+      <div className='absolute rounded-full w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 -top-32 -right-32 sm:-top-48 sm:-right-48 bg-gradient-to-bl from-blue-100/30 to-purple-100/30 blur-3xl animate-pulse'></div>
+      <div className='absolute delay-1000 rounded-full w-56 h-56 sm:w-72 sm:h-72 lg:w-80 lg:h-80 -bottom-28 -left-28 sm:-bottom-40 sm:-left-40 bg-gradient-to-tr from-pink-100/20 to-orange-100/20 blur-3xl animate-pulse'></div>
+      <div className='absolute w-48 h-48 delay-500 rounded-full sm:w-64 sm:h-64 top-1/3 -left-24 sm:-left-32 bg-gradient-to-r from-green-100/20 to-teal-100/20 blur-2xl animate-pulse'></div>
       
       {/* Floating decorative elements */}
-      <div className='absolute w-6 h-6 rounded-full shadow-lg top-1/4 left-1/6 bg-gradient-to-br from-blue-300/40 to-cyan-300/40 animate-pulse'></div>
-      <div className='absolute w-4 h-4 delay-500 rounded-full shadow-lg top-2/3 right-1/4 bg-gradient-to-br from-purple-300/40 to-pink-300/40 animate-pulse'></div>
-      <div className='absolute w-8 h-8 delay-1000 rounded-full shadow-lg top-1/2 right-1/6 bg-gradient-to-br from-pink-300/40 to-rose-300/40 animate-pulse'></div>
+      <div className='absolute w-4 h-4 rounded-full shadow-lg sm:w-6 sm:h-6 top-1/4 left-1/6 bg-gradient-to-br from-blue-300/40 to-cyan-300/40 animate-pulse'></div>
+      <div className='absolute w-3 h-3 delay-500 rounded-full shadow-lg sm:w-4 sm:h-4 top-2/3 right-1/4 bg-gradient-to-br from-purple-300/40 to-pink-300/40 animate-pulse'></div>
+      <div className='absolute w-5 h-5 delay-1000 rounded-full shadow-lg sm:w-8 sm:h-8 top-1/2 right-1/6 bg-gradient-to-br from-pink-300/40 to-rose-300/40 animate-pulse'></div>
       
-      <div className='relative z-10 px-6 mx-auto max-w-7xl'>
-        <form onSubmit={onSubmitHandler} className='flex flex-col sm:flex-row justify-between gap-8 pt-8 sm:pt-16 min-h-[80vh] border-t border-gray-200/50'>
+      <div className='relative z-10 px-4 mx-auto max-w-7xl sm:px-6'>
+        <form onSubmit={onSubmitHandler} className='flex flex-col sm:flex-row justify-between gap-6 pt-6 sm:gap-8 sm:pt-8 lg:pt-16 min-h-[80vh] border-t border-gray-200/50'>
 
           {/* -----------left side------------ */}
-          <div className='flex flex-col gap-6 w-full sm:max-w-[520px]'>
+          <div className='flex flex-col gap-4 w-full sm:gap-6 sm:max-w-[520px]'>
             {/* Delivery Information Card */}
-            <div className='relative p-6 overflow-hidden transition-all duration-300 border shadow-lg bg-white/80 backdrop-blur-sm rounded-xl border-gray-200/50 hover:shadow-xl hover:bg-white/90 group'>
+            <div className='relative p-4 overflow-hidden transition-all duration-300 border shadow-lg bg-white/80 backdrop-blur-sm rounded-xl border-gray-200/50 hover:shadow-xl hover:bg-white/90 group sm:p-6'>
               <div className='absolute inset-0 transition-opacity duration-300 opacity-0 bg-gradient-to-r from-blue-50/30 to-transparent group-hover:opacity-100'></div>
               
               {/* Decorative corner elements */}
-              <div className='absolute top-0 right-0 w-16 h-16 rounded-bl-full bg-gradient-to-bl from-blue-100/20 to-transparent'></div>
-              <div className='absolute bottom-0 left-0 w-12 h-12 rounded-tr-full bg-gradient-to-tr from-purple-100/20 to-transparent'></div>
+              <div className='absolute top-0 right-0 w-12 h-12 rounded-bl-full bg-gradient-to-bl from-blue-100/20 to-transparent sm:w-16 sm:h-16'></div>
+              <div className='absolute bottom-0 left-0 w-8 h-8 rounded-tr-full bg-gradient-to-tr from-purple-100/20 to-transparent sm:w-12 sm:h-12'></div>
               
               <div className='relative z-10'>
-                <div className='flex items-center gap-3 mb-6'>
-                  <div className='flex items-center justify-center w-10 h-10 shadow-lg rounded-xl bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-500'>
-                    <svg className='w-5 h-5 text-white' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
+                <div className='flex items-center gap-2 mb-4 sm:gap-3 sm:mb-6'>
+                  <div className='flex items-center justify-center w-8 h-8 shadow-lg rounded-xl bg-gradient-to-br from-blue-500 via-indigo-500 to-purple-500 sm:w-10 sm:h-10'>
+                    <svg className='w-4 h-4 text-white sm:w-5 sm:h-5' fill='none' stroke='currentColor' viewBox='0 0 24 24'>
                       <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z'></path>
                       <path strokeLinecap='round' strokeLinejoin='round' strokeWidth='2' d='M15 11a3 3 0 11-6 0 3 3 0 016 0z'></path>
                     </svg>
