@@ -78,7 +78,7 @@ const Hero = () => {
         
         {/* Next image sliding in from the left */}
         {isAnimating && (
-          <div className='absolute inset-0 w-full h-full transition-transform duration-1000 ease-in-out transform -translate-x-full animate-slideIn'>
+          <div className='absolute inset-0 w-full h-full transition-transform duration-1000 ease-in-out transform translate-x-0'>
             <img 
               className='absolute inset-0 object-cover w-full h-full'
               src={heroImages[(currentImageIndex + 1) % heroImages.length]} 

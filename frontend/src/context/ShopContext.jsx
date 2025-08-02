@@ -10,10 +10,14 @@ export const ShopContext = createContext();
 
 const ShopContextProvider = (props) => {
 
-
     const currency = "$";
     const delivery_fee = 10;
-    const backendUrl = import.meta.env.VITE_BACKEND_URL;
+    const backendUrl = import.meta.env.VITE_BACKEND_URL || "http://localhost:4000";
+    
+    // Debug: Check if backendUrl is loaded correctly
+    console.log("Backend URL:", backendUrl);
+    console.log("Environment variable VITE_BACKEND_URL:", import.meta.env.VITE_BACKEND_URL);
+    
     const [search,setSearch]=useState("");
     const [showSearch,setShowSearch]=useState(false);
     const [cartItems,setCartItems] = useState({});
